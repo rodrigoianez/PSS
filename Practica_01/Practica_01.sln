@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolaMundo", "HolaMundo\HolaMundo.csproj", "{F516477C-10A7-4554-BFCF-4EBCDE6E57E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HolaMundo", "HolaMundo\HolaMundo.csproj", "{F516477C-10A7-4554-BFCF-4EBCDE6E57E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libreria", "Libreria\Libreria.csproj", "{6DBE4C04-5722-4A1C-9879-6FF9CCE64469}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testlibreria", "Testlibreria\Testlibreria.csproj", "{988068F4-1C03-4D07-AA89-2B83B30B3BE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{F516477C-10A7-4554-BFCF-4EBCDE6E57E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F516477C-10A7-4554-BFCF-4EBCDE6E57E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F516477C-10A7-4554-BFCF-4EBCDE6E57E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DBE4C04-5722-4A1C-9879-6FF9CCE64469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DBE4C04-5722-4A1C-9879-6FF9CCE64469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DBE4C04-5722-4A1C-9879-6FF9CCE64469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DBE4C04-5722-4A1C-9879-6FF9CCE64469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{988068F4-1C03-4D07-AA89-2B83B30B3BE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{988068F4-1C03-4D07-AA89-2B83B30B3BE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{988068F4-1C03-4D07-AA89-2B83B30B3BE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{988068F4-1C03-4D07-AA89-2B83B30B3BE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Libreria/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Libreria.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Libreria.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Libreria/1.0.0": {
+      "type": "project",
+      "path": "../Libreria/Libreria.csproj",
+      "msbuildProject": "../Libreria/Libreria.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Libreria >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Rodrigo\\.nuget\\packages\\": {},
@@ -39,7 +58,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Rodrigo\\source\\repos\\2022-pss-rih419\\Practica_01\\Libreria\\Libreria.csproj": {
+              "projectPath": "C:\\Users\\Rodrigo\\source\\repos\\2022-pss-rih419\\Practica_01\\Libreria\\Libreria.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
