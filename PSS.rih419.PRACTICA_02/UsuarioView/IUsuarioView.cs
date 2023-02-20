@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PSS.rih419.Practica_02
+namespace PSS.rih419_RodrigoIañezHuertas.Practica_02
 {
     public interface IUsuarioView
     {
