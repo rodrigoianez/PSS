@@ -16,6 +16,7 @@ namespace PSS.rih419.Practica_02
         public string palabraPaso;
         public string categoria;
         public bool esValido;
+
         public UsuarioView(int id, string nombre, string palabraPaso, string categoria,
         bool esValido)
         {
