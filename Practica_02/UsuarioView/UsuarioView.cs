@@ -46,6 +46,7 @@ namespace PSS.rih419.Practica_02
         public int GetHashCode([DisallowNull] UsuarioView obj)
         {
             throw new NotImplementedException();
+
         }
     }
 }
