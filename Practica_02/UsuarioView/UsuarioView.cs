@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,20 +35,29 @@ namespace PSS.rih419.Practica_02
         public string Categoria { get => this.categoria; set => categoria = value; }
         public bool EsValido { get => this.esValido; set => esValido = value; }
 
+        public UsuarioView()
+        {
+
+
+
+        }
         public bool Equals(UsuarioView? other)
         {
-            throw new NotImplementedException();
+            if (object.ReferenceEquals(this, other)) return true;
+            if (object.ReferenceEquals(other, null)) return false;
+            return this.id.Equals(other.Id);
         }
 
         public bool Equals(UsuarioView? x, UsuarioView? y)
         {
-            throw new NotImplementedException();
+            if (object.ReferenceEquals(x, y)) return true;
+            if (object.ReferenceEquals(x, null) || object.ReferenceEquals(y, null))  return false;
+            return x.id.Equals(y.Id);
         }
       
         public int GetHashCode([DisallowNull] UsuarioView obj)
         {
-            throw new NotImplementedException();
-
+            return (obj == null) ? "".GetHashCode() : (obj as object).GetHashCode(); 
         }
     }
 }
