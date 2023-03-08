@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PSS.rih419_RodrigoIañezHuertas.Practica_02
+namespace PSS.rih419.Practica_02
 {
     public interface IUsuarioView
     {
-        string Id { get; set; } //representa el identificador único del objeto
-        string Nombre { get; set; }
-        string PalabraPaso { get; set; }
-        string Categoria { get; set; }
-        bool EsValido { get; set; }
+        string Id {get;set;} //representa el identificador único del objeto
+        string Nombre {get;set;}
+        string PalabraPaso {get;set;}
+        string Categoria {get;set;}
+        bool EsValido {get;set;}
     
 
 }
