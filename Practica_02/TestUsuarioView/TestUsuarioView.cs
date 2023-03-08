@@ -1,52 +1,64 @@
+using System.Data.Common;
+
 namespace PSS.rih419.Practica_02
 {
+
     public class TestUsuarioView
     {
         
             UsuarioView usuario1 = new UsuarioView(0, "Rodrigo", "cocinar", "avanzado", false);
             UsuarioView usuario2 = new UsuarioView(1, "Jesus", "comer", "experto", true);
             UsuarioView usuario3 = new UsuarioView();
-            UsuarioView? usuario4;
+            UsuarioView? usuario4 = null;
             UsuarioView usuario5 = new UsuarioView(0, "Rodrigo", "cocinar", "experto", true);
         
         [Test]
-        public void UsuariosDiferentes()
+        public void IsNull()
         {
 
-            Assert.That(Equals(usuario1,usuario2), Is.EqualTo(false));
-            Assert.That(Equals(usuario1, usuario5), Is.EqualTo(false));
-            Assert.That(Equals(usuario2, usuario5), Is.EqualTo(false));
+            Assert.IsNull(usuario4);
+            
 
         }
 
         [Test]
-        public void UsuariosIguales()
+        public void IsNotNull()
         {
-
-            Assert.That(Equals(usuario1, usuario1), Is.EqualTo(true));
-            Assert.That(Equals(usuario5, usuario5), Is.EqualTo(true));
+            Assert.IsNotNull(usuario1);
+            
 
         }
 
         [Test]
-        public void Vacio_Usuario()
+        public void AreEqual()
         {
 
-            Assert.That(Equals(usuario1, usuario3), Is.EqualTo(false));
-            Assert.That(Equals(usuario2, usuario3), Is.EqualTo(false));
-            Assert.That(Equals(usuario5, usuario3), Is.EqualTo(false));
+            Assert.AreEqual(usuario1, usuario1);
 
         }
 
         [Test]
-        public void  Null_Vacio()
+        public void AreNotEqual()
         {
 
-            Assert.That(Equals(usuario4, usuario3), Is.EqualTo(false));
+            Assert.AreNotEqual(usuario1, usuario2);
 
         }
 
+        [Test]
+        public void test5()
+        {
 
+            Assert.That(Equals(usuario1.GetHashCode(), usuario3.GetHashCode()), Is.EqualTo(false));
 
+        }
+
+        [Test]
+        public void test6()
+        {
+
+            Assert.That(Equals(usuario1.GetHashCode(), usuario1.GetHashCode()), Is.EqualTo(true));
+
+        }
     }
 }

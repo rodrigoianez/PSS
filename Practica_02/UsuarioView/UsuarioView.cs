@@ -55,6 +55,16 @@ namespace PSS.rih419.Practica_02
             if (object.ReferenceEquals(x, null) || object.ReferenceEquals(y, null))  return false;
             return x.id.Equals(y.Id);
         }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj == null) return false;
+            UsuarioView usuario = obj as UsuarioView;
+            return this.id.Equals(usuario.id);
+
+        }
+
+
       
         public int GetHashCode([DisallowNull] UsuarioView obj)
         {
