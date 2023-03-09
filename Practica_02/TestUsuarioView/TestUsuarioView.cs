@@ -46,19 +46,36 @@ namespace PSS.rih419.Practica_02
         }
 
         [Test]
-        public void test5()
+        public void EqualGetHashCode()
         {
 
-            Assert.That(Equals(usuario1.GetHashCode(), usuario3.GetHashCode()), Is.EqualTo(false));
+            Assert.AreEqual(usuario1.GetHashCode(), usuario1.GetHashCode());
 
         }
 
         [Test]
-        public void test6()
+        public void NotEqualGetHashCode()
         {
 
-            Assert.That(Equals(usuario1.GetHashCode(), usuario1.GetHashCode()), Is.EqualTo(true));
+            Assert.AreNotEqual(usuario1.GetHashCode(), usuario2.GetHashCode());
 
         }
+
+        [Test]
+        public void VoidGetHashCode()
+        {
+
+            Assert.AreEqual(usuario3.GetHashCode(), usuario3.GetHashCode());
+
+        }
+
+        [Test]
+        public void AreSame()
+        {
+
+            Assert.AreSame(usuario1, usuario1);
+
+        }
+
     }
 }
