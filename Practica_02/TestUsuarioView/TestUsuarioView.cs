@@ -77,5 +77,30 @@ namespace PSS.rih419.Practica_02
 
         }
 
+        [Test]
+        public void AreNotSame()
+        {
+
+            Assert.AreNotSame(usuario1, usuario2);
+
+        }
+
+        [Test]
+        public void Throws()
+        {
+            
+            Assert.False(Equals(usuario1,usuario2));
+
+        }
+
+        [Test]
+        public void Distinto()
+        {
+            Assert.IsTrue(usuario2 != usuario5);
+        }
+
+
+
+
     }
 }
