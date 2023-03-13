@@ -5,7 +5,12 @@ VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsuarioView", "UsuarioView\UsuarioView.csproj", "{F87D1B3E-50E2-43CF-846C-DD8851EC66B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUsuarioView", "TestUsuarioView\TestUsuarioView.csproj", "{6EA89417-9448-4FE5-BDC1-F1517B5FB1B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestUsuarioView", "TestUsuarioView\TestUsuarioView.csproj", "{6EA89417-9448-4FE5-BDC1-F1517B5FB1B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{63B6CCE1-AC3F-4B5F-9395-43E6D075A41E}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

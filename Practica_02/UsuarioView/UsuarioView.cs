@@ -70,5 +70,16 @@ namespace PSS.rih419.Practica_02
         {
             return (obj == null) ? "".GetHashCode() : (obj as object).GetHashCode(); 
         }
+        
+        public static bool operator == (UsuarioView usuario1, UsuarioView usuario2)
+        {
+            if (object.ReferenceEquals(usuario1, usuario2)) return true;
+            if (object.ReferenceEquals(usuario1, null)) return false;
+            if(object.ReferenceEquals(null, usuario2)) return false;
+            return usuario1.Equals(usuario2);
+
+        }
+
+        public static  bool opearto
     }
 }
