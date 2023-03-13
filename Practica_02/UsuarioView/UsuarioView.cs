@@ -24,7 +24,7 @@ namespace PSS.rih419.Practica_02
         {
             this.id = id.ToString();
             this.nombre = nombre;
-            this.palabraPaso= palabraPaso;
+            this.palabraPaso = palabraPaso;
             this.categoria = categoria;
             this.esValido = esValido;
 
@@ -52,7 +52,7 @@ namespace PSS.rih419.Practica_02
         public bool Equals(UsuarioView? x, UsuarioView? y)
         {
             if (object.ReferenceEquals(x, y)) return true;
-            if (object.ReferenceEquals(x, null) || object.ReferenceEquals(y, null))  return false;
+            if (object.ReferenceEquals(x, null) || object.ReferenceEquals(y, null)) return false;
             return x.id.Equals(y.Id);
         }
 
@@ -65,21 +65,25 @@ namespace PSS.rih419.Practica_02
         }
 
 
-      
+
         public int GetHashCode([DisallowNull] UsuarioView obj)
         {
-            return (obj == null) ? "".GetHashCode() : (obj as object).GetHashCode(); 
+            return (obj == null) ? "".GetHashCode() : (obj as object).GetHashCode();
         }
-        
-        public static bool operator == (UsuarioView usuario1, UsuarioView usuario2)
+
+    
+        public static bool operator ==(UsuarioView usuario1, UsuarioView usuario2)
         {
-            if (object.ReferenceEquals(usuario1, usuario2)) return true;
-            if (object.ReferenceEquals(usuario1, null)) return false;
-            if(object.ReferenceEquals(null, usuario2)) return false;
+         
             return usuario1.Equals(usuario2);
 
         }
 
-        public static  bool opearto
+        public static bool operator != (UsuarioView usuario1, UsuarioView usuario2)
+        {
+
+            return !(usuario1 == usuario2);
+
+        }
     }
 }
