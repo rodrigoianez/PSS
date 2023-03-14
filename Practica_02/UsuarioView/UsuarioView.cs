@@ -85,5 +85,8 @@ namespace PSS.rih419.Practica_02
             return !(usuario1 == usuario2);
 
         }
+
+
+
     }
 }

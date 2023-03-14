@@ -10,8 +10,9 @@ namespace PSS.rih419.Practica_02
             UsuarioView usuario2 = new UsuarioView(1, "Jesus", "comer", "experto", true);
             UsuarioView usuario3 = new UsuarioView();
             UsuarioView? usuario4 = null;
-            UsuarioView usuario5 = new UsuarioView(0, "Rodrigo", "cocinar", "experto", true);
-        
+            UsuarioView usuario5 = new UsuarioView(0, "", "", "", true);
+            UsuarioView usuario6 = new UsuarioView(1, "", "", "", true);
+
         [Test]
         public void IsNull()
         {
@@ -34,6 +35,7 @@ namespace PSS.rih419.Practica_02
         {
 
             Assert.AreEqual(usuario1, usuario1);
+           
 
         }
 
