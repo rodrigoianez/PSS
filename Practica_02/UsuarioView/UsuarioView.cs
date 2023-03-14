@@ -71,10 +71,10 @@ namespace PSS.rih419.Practica_02
             return (obj == null) ? "".GetHashCode() : (obj as object).GetHashCode();
         }
 
-    
+
         public static bool operator ==(UsuarioView usuario1, UsuarioView usuario2)
         {
-         
+
             return usuario1.Equals(usuario2);
 
         }
@@ -86,7 +86,46 @@ namespace PSS.rih419.Practica_02
 
         }
 
+        public int CompareTo(UsuarioView obj)
+        {
 
+            if (object.ReferenceEquals(this, obj)) return 0;
+            if (object.ReferenceEquals(this, null)) return 1;
+            if (object.ReferenceEquals(null, null)) return 0;222
+            if (!this.GetType().Name.Equals(obj.GetType().Name)) throw new 
+                    ArgumentException ("No se pueden comparar estos objetos");
+                    return this.id.CompareTo(obj.id);
 
+        }
+
+        public static bool operator > (UsuarioView usuario1, UsuarioView usuario2)
+        {
+
+            return (usuario1 > usuario2);
+
+        }
+
+        public static bool operator < (UsuarioView usuario1, UsuarioView usuario2)
+        {
+
+            return (usuario1 < usuario2);
+            
+        }
+
+        public static bool operator >= (UsuarioView usuario1, UsuarioView usuario2)
+        {
+
+            return (usuario1 >= usuario2);
+
+        }
+
+        public static bool operator <= (UsuarioView usuario1, UsuarioView usuario2)
+        {
+
+            return (usuario1 <= usuario2);
+
+        }
     }
+
 }
+
