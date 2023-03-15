@@ -90,8 +90,7 @@ namespace PSS.rih419.Practica_02
         {
 
             if (object.ReferenceEquals(this, obj)) return 0;
-            if (object.ReferenceEquals(this, null)) return 1;
-            if (object.ReferenceEquals(null, null)) return 0;222
+            if (object.ReferenceEquals(obj, null)) return 1;
             if (!this.GetType().Name.Equals(obj.GetType().Name)) throw new 
                     ArgumentException ("No se pueden comparar estos objetos");
                     return this.id.CompareTo(obj.id);
