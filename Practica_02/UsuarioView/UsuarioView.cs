@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace PSS.rih419.Practica_02
 {
     public class UsuarioView : IUsuarioView, IEquatable<UsuarioView>,
-    IEqualityComparer<UsuarioView>
+    IEqualityComparer<UsuarioView>,IComparable<UsuarioView>
     {
 
         public string id;
@@ -107,7 +107,10 @@ namespace PSS.rih419.Practica_02
         public static bool operator < (UsuarioView usuario1, UsuarioView usuario2)
         {
 
-            return (usuario1 < usuario2);
+            //return (usuario1 < usuario2);
+
+            int m = usuario1.CompareTo(usuario2);
+            return m == -1;
             
         }
 

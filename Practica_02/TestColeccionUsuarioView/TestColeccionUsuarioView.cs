@@ -4,9 +4,9 @@ namespace PSS.rih419.Practica_02
     public class TestColeccionUsuarioView {
 
         public static UsuarioView usuario1 = new UsuarioView(1, "Rodrigo", "", "", false);
-        public static UsuarioView usuario2 = new UsuarioView(2, "Miguel Angel", "", "", false);
+        public static UsuarioView usuario2 = new UsuarioView(4, "Miguel Angel", "", "", false);
         public static UsuarioView usuario3 = new UsuarioView(3, "", "", "", false);
-        public static UsuarioView usuario4 = new UsuarioView(4, "Rodrigo", "", "", false);
+        public static UsuarioView usuario4 = new UsuarioView(2, "Rodrigo", "", "", false);
         public static UsuarioView usuario5 = new UsuarioView(1, "Rodrigo", "", "", false);
 
 
@@ -54,7 +54,17 @@ namespace PSS.rih419.Practica_02
 
         }
 
-        
+        [TestMethod]
+        public void Sort()
+        {
+
+            ListaObjetos.Sort();
+            Assert.AreEqual(0, ListaObjetos.IndexOf(usuario1));
+            Assert.AreEqual(1, ListaObjetos.LastIndexOf(usuario5));
+            Assert.AreEqual(2, ListaObjetos.LastIndexOf(usuario4));
+            Assert.AreEqual(3, ListaObjetos.LastIndexOf(usuario3));
+            Assert.AreEqual(4, ListaObjetos.LastIndexOf(usuario2));
+        }
 
 
 
