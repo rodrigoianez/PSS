@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Dynamic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using PSS.rih419.Practica_02;
 
 namespace ComparadorPropiedad
-{
-
-     
-    public class ComparadorPropiedad<T> : IComparer<T>
+{ 
+    public class ComparadorPropiedad<T> : IComparer<T> where T : IComparable<T>
     {
-       
-
-        PropertyDescriptor valor;
-
-
         private PropertyDescriptor GetProperty(string name)
         {
             T item = (T)Activator.CreateInstance(typeof(T));
@@ -26,16 +23,28 @@ namespace ComparadorPropiedad
             }
             return propName;
         }
+
+        public static string nombre;
+        public static PropertyDescriptor valor;
+
+        public ComparadorPropiedad(String nombre)
+        {
+
+            valor = GetProperty(nombre);
+
+            if (valor == null ) throw new ArgumentException ("El parámetro no puede ser nulo");
+            
+        }
+
+        
         public int Compare(T? x, T? y)
         {
 
             ComparadorPropiedad<T> valorx = (ComparadorPropiedad<T>)valor.GetValue(x);
             ComparadorPropiedad<T> valory = (ComparadorPropiedad<T>)valor.GetValue(y);
 
-
-            return valorx.Compare(valory););
-
-
+        
+            return CompareTo(valorx,valory);
 
         }
     }
