@@ -64,6 +64,7 @@ namespace PSS.rih419.Practica_02
             Assert.AreEqual(2, ListaObjetos.LastIndexOf(usuario4));
             Assert.AreEqual(3, ListaObjetos.LastIndexOf(usuario3));
             Assert.AreEqual(4, ListaObjetos.LastIndexOf(usuario2));
+
         }
 
 
