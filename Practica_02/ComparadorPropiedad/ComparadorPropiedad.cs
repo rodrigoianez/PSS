@@ -8,11 +8,14 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using PSS.rih419.Practica_02;
+using System.ComponentModel;
+using System.Xml.Linq;
 
-namespace ComparadorPropiedad
-{ 
+namespace PSS.rih419.Practica_02
+{
     public class ComparadorPropiedad<T> : IComparer<T> where T : IComparable<T>
     {
+
         private PropertyDescriptor GetProperty(string name)
         {
             T item = (T)Activator.CreateInstance(typeof(T));
@@ -36,15 +39,15 @@ namespace ComparadorPropiedad
             
         }
 
-        
         public int Compare(T? x, T? y)
         {
 
-            ComparadorPropiedad<T> valorx = (ComparadorPropiedad<T>)valor.GetValue(x);
-            ComparadorPropiedad<T> valory = (ComparadorPropiedad<T>)valor.GetValue(y);
+            if(!(x is null) && (y is null)) return 1;
+            if (!(x is null) && (y is null)) return -1;
 
-        
-            return CompareTo(valorx,valory);
+            PropertyDescriptor aux = GetProperty(nombre);
+
+            return (aux.GetValue(x).ToString().CompareTo(aux.GetValue(y).ToString()));
 
         }
     }
