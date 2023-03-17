@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestUsuarioView", "TestUsua
 		{F87D1B3E-50E2-43CF-846C-DD8851EC66B7} = {F87D1B3E-50E2-43CF-846C-DD8851EC66B7}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComparadorPropiedad", "ComparadorPropiedad\ComparadorPropiedad.csproj", "{1DB08BC3-D635-4908-8F67-2F9B4FCE1C7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComparadorPropiedad", "ComparadorPropiedad\ComparadorPropiedad.csproj", "{1DB08BC3-D635-4908-8F67-2F9B4FCE1C7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestComparadorPropiedad", "TestComparadorPropiedad\TestComparadorPropiedad.csproj", "{7F542023-F9F0-4F63-81C4-432A4DB4C418}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{1DB08BC3-D635-4908-8F67-2F9B4FCE1C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DB08BC3-D635-4908-8F67-2F9B4FCE1C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DB08BC3-D635-4908-8F67-2F9B4FCE1C7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F542023-F9F0-4F63-81C4-432A4DB4C418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F542023-F9F0-4F63-81C4-432A4DB4C418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F542023-F9F0-4F63-81C4-432A4DB4C418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F542023-F9F0-4F63-81C4-432A4DB4C418}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
