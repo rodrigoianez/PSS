@@ -55,14 +55,43 @@ namespace PSS.rih419.Practica_02
         }
 
         [TestMethod]
-        public void Sort()
+        public void Sort0()
         {
 
             ListaObjetos.Sort();
             Assert.AreEqual(0, ListaObjetos.IndexOf(usuario1));
+
+        }
+
+        [TestMethod]
+        public void Sort1()
+        {
+
+            ListaObjetos.Sort();
             Assert.AreEqual(1, ListaObjetos.LastIndexOf(usuario5));
+
+        }
+        [TestMethod]
+        public void Sort2()
+        {
+
+            ListaObjetos.Sort();
             Assert.AreEqual(2, ListaObjetos.LastIndexOf(usuario4));
+
+        }
+        [TestMethod]
+        public void Sort3()
+        {
+
+            ListaObjetos.Sort();
             Assert.AreEqual(3, ListaObjetos.LastIndexOf(usuario3));
+
+        }
+        [TestMethod]
+        public void Sort4()
+        {
+
+            ListaObjetos.Sort();
             Assert.AreEqual(4, ListaObjetos.LastIndexOf(usuario2));
 
         }
