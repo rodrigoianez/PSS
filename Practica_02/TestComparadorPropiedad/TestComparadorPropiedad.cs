@@ -12,7 +12,6 @@ namespace PSS.rih419.Practica_02
         [TestMethod]
         public void CompareId_UsuarioNull()
         {
-
             ComparadorPropiedad<UsuarioView> propiedad = new ComparadorPropiedad<UsuarioView>("Id");
 
             Assert.AreEqual(1,propiedad.Compare(usuario1, usuario3));
