@@ -100,7 +100,7 @@ namespace PSS.rih419.Practica_02
         public static bool operator > (UsuarioView usuario1, UsuarioView usuario2)
         {
 
-            return (usuario1 > usuario2);
+            return !(usuario1 < usuario2);
 
         }
 
@@ -117,14 +117,14 @@ namespace PSS.rih419.Practica_02
         public static bool operator >= (UsuarioView usuario1, UsuarioView usuario2)
         {
 
-            return (usuario1 >= usuario2);
+            return (usuario1 > usuario2 || usuario1 == usuario2);
 
         }
 
         public static bool operator <= (UsuarioView usuario1, UsuarioView usuario2)
         {
 
-            return (usuario1 <= usuario2);
+            return (usuario1 < usuario2 || usuario1 == usuario2);
 
         }
     }

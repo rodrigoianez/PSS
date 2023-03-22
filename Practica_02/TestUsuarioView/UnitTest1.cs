@@ -44,6 +44,14 @@ namespace PSS.rih419.Practica_02
         }
 
         [TestMethod]
+        public void AreNotEqual()
+        {
+
+            Assert.AreNotEqual(usuario1, usuario2);
+
+        }
+
+        [TestMethod]
         public void AreEqualsGetHashCode()
         {
 
@@ -60,15 +68,7 @@ namespace PSS.rih419.Practica_02
         }
 
         [TestMethod]
-        public void AreNotEqualGetHashCode()
-        {
-
-            Assert.AreNotEqual(usuario1.GetHashCode(), usuario2.GetHashCode());
-
-        }
-
-        [TestMethod]
-        public void Distinto()
+        public void Distinto_IsTrue()
         {
 
             Assert.IsTrue(usuario2 != usuario5);
@@ -76,10 +76,26 @@ namespace PSS.rih419.Practica_02
         }
 
         [TestMethod]
-        public void Igual()
+        public void Distinto_IsFalse()
+        {
+
+            Assert.IsFalse(usuario1 != usuario6);
+
+        }
+
+        [TestMethod]
+        public void Igual_IsTrue()
         {
 
             Assert.IsTrue(usuario1 == usuario6);
+
+        }
+
+        [TestMethod]
+        public void Igual_IsFalse()
+        {
+
+            Assert.IsFalse(usuario1 == usuario5);
 
         }
 
@@ -152,7 +168,88 @@ namespace PSS.rih419.Practica_02
 
         }
 
-       
+
+        [TestMethod]
+        public void Mayor_IsFalse()
+        {
+
+            Assert.IsFalse(usuario1 > usuario3);
+
+        }
+
+        [TestMethod]
+        public void Mayor_IsTrue()
+        {
+
+            Assert.IsTrue(usuario3> usuario1);
+
+        }
+
+        [TestMethod]
+        public void Menor_IsFalse()
+        {
+
+            Assert.IsFalse(usuario1 < usuario5);
+
+        }
+
+        [TestMethod]
+        public void Menor_IsTrue()
+        {
+
+            Assert.IsTrue(usuario1 < usuario3);
+
+        }
+
+        [TestMethod]
+        public void MayorIgual_IsTrue_Mayor()
+        {
+
+            Assert.IsTrue(usuario2 >= usuario1);
+            
+        }
+
+        [TestMethod]
+        public void MayorIgual_IsTrue_Igual()
+        {
+
+            Assert.IsTrue(usuario1 >= usuario6);
+
+        }
+
+        [TestMethod]
+        public void MayorIgual_IsFalse()
+        {
+
+            Assert.IsFalse(usuario1 >= usuario2);
+            
+
+        }
+
+        [TestMethod]
+        public void MenorIgual_IsTrue_Igual()
+        {
+
+            Assert.IsTrue(usuario1 <= usuario6);
+
+        }
+
+        [TestMethod]
+        public void MenorIgual_IsTrue_Menor()
+        {
+
+            Assert.IsTrue(usuario1 <= usuario3);
+
+        }
+
+        [TestMethod]
+        public void MenorIgual_IsFalse()
+        {
+
+            Assert.IsFalse(usuario2 <= usuario1);
+
+        }
+
 
     }
 } 

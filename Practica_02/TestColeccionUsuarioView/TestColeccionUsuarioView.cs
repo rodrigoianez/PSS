@@ -95,5 +95,7 @@ namespace PSS.rih419.Practica_02
             Assert.AreEqual(4, ListaObjetos.LastIndexOf(usuario2));
 
 
-    }    }
+
+
+    }   }
 }

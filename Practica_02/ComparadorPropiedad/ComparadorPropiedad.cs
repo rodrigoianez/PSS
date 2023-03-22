@@ -43,12 +43,12 @@ namespace PSS.rih419.Practica_02
         {
 
             if(!(x is null) && (y is null)) return 1;
-            if (!(x is null) && (y is null)) return -1;
+            if ((x is null) && !(y is null)) return -1;
             if ((x is null && (y is null))) return 0;
 
-            PropertyDescriptor aux = GetProperty(nombre);
+            
 
-            return (aux.GetValue(x).ToString().CompareTo(aux.GetValue(y).ToString()));
+            return (valor.GetValue(x).ToString().CompareTo(valor.GetValue(y).ToString()));
 
         }
     }
