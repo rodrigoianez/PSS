@@ -8,7 +8,7 @@ namespace PSS.rih419.Practica_02
         public static UsuarioView usuario3 = new UsuarioView(3, "", "", "", false);
         public static UsuarioView usuario4 = new UsuarioView(2, "Rodrigo", "", "", false);
         public static UsuarioView usuario5 = new UsuarioView(1, "Rodrigo", "", "", false);
-
+        public static UsuarioView usuario6 = null;
 
         List<UsuarioView> ListaObjetos = new List<UsuarioView>() { usuario1, usuario2, usuario3, usuario4, usuario5 };
 

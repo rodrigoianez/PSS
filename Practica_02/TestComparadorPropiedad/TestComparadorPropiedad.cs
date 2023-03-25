@@ -3,11 +3,28 @@ namespace PSS.rih419.Practica_02
     [TestClass]
     public class TestComparadorPropiedad
     {
-        UsuarioView usuario1 = new UsuarioView(0, "Rodrigo", "Comer", "Comida", true);
-        UsuarioView usuario2 = new UsuarioView(1, "Gelado", "Cenar", "Cena", false);
-        UsuarioView usuario3 = null;
+        public static  UsuarioView usuario1 = new UsuarioView(0, "Rodrigo", "Comer", "Comida", true);
+        public static  UsuarioView usuario2 = new UsuarioView(1, "Gelado", "Cenar", "Cena", false);
 
-        UsuarioView usuario4 = new UsuarioView(0, "Rodrigo", "Comer", "Comida", true);
+        public static  UsuarioView usuario3 = null;
+        
+        public static UsuarioView usuario4 = new UsuarioView(0, "Rodrigo", "Comer", "Comida", true);
+        public static UsuarioView usuario5 = new UsuarioView();
+        public static UsuarioView usuario6 = new UsuarioView(2, "Gelado", "Cenar", "Cena", false);
+
+        List<UsuarioView> Lista1 = new List<UsuarioView>() { usuario1, usuario2, usuario6};
+        List<UsuarioView> Lista2 = new List<UsuarioView>() { usuario6, usuario1, usuario2};
+
+
+        [TestMethod]
+        public void CompareId_Lista()
+        {
+
+            ComparadorPropiedad<UsuarioView> propiedad = new ComparadorPropiedad<UsuarioView>("Id");
+            Lista2.Sort(propiedad);
+            CollectionAssert.AreEqual(Lista1, Lista2);
+
+        }
 
         [TestMethod]
         public void CompareId_UsuarioNull()
@@ -267,6 +284,9 @@ namespace PSS.rih419.Practica_02
             Assert.IsTrue(0 != propiedad.Compare(usuario1, usuario2));
 
         }
+
+         List<UsuarioView> ListaObjetos = new List<UsuarioView>() { usuario1, usuario2, usuario3, usuario4, usuario5 };
+
 
 
 
