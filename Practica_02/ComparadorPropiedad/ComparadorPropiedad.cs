@@ -27,7 +27,7 @@ namespace PSS.rih419.Practica_02
             return propName;
         }
 
-        public static string nombre;
+        
         public static PropertyDescriptor valor;
 
         public ComparadorPropiedad(String nombre)
