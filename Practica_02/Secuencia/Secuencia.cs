@@ -81,7 +81,8 @@ namespace PSS.rih419.Practica_02
         public IEnumerable<T> RecorridoAtras()
         {
 
-            Secuencia<T> listaNueva = new Secuencia<T>();
+            List<T> listaNueva = new List<T>();
+
             listaNueva.Reverse();
 
             foreach (T obj in listaNueva)
