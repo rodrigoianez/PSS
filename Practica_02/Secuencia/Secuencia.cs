@@ -61,5 +61,30 @@ namespace PSS.rih419.Practica_02
             this.Sort(secuencia);
 
         }
+
+        IEnumerable<T> RecorridoAdelante()
+        {
+            foreach (T obj in this)
+            {
+
+                yield return obj;
+
+            }
+        }
+
+        IEnumerable<T> RecorridoAtras()
+        {
+
+            List<T> listaNueva = new List<T>();
+            listaNueva.Reverse();
+
+            foreach (T obj in listaNueva)
+            {
+
+                yield return obj;
+
+            }
+
+        }
     }
 }
