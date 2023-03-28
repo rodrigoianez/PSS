@@ -9,7 +9,11 @@ namespace PSS.rih419.Practica_02
     {
 
 
-        public Secuencia() : base { }
+        public Secuencia() : base()
+        {
+
+
+        }
 
         public T this[int i]
         {
