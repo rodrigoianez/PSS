@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Collections;
 using PSS.rih419.Practica_02;
+using System.ComponentModel;
 
 namespace PSS.rih419.Practica_02
 {
-    public class Secuencia<T> : List<T>, IEnumerable<T>,  ISecuencia<T> where T : IComparable<T>
+    public class Secuencia<T> : List<T>, IEnumerable<T>, ISecuencia<T> where T : IComparable<T>
     {
 
 
-        public Secuencia() { }
+        public Secuencia() : base { }
 
-        public T this [int i]
+        public T this[int i]
         {
 
             get { if (0 > i || i > this.Count) throw new ArgumentOutOfRangeException("Esta posicion no existe"); return this[i]; }
@@ -50,19 +51,20 @@ namespace PSS.rih419.Practica_02
         public int Cuenta
         {
 
-            get { return this.Count;    }
-            set { this.Cuenta = value;  }
+            get { return this.Count; }
+            set { this.Cuenta = value; }
 
         }
 
-        public void Ordenar(IComparer<T> secuencia)
+        public void Ordenar(IComparer<T> propiedad)
         {
 
-            this.Sort(secuencia);
+            if (propiedad == null) return;
+            this.Sort(propiedad);
 
         }
 
-        IEnumerable<T> RecorridoAdelante()
+        public IEnumerable<T> RecorridoAdelante()
         {
             foreach (T obj in this)
             {
@@ -72,10 +74,10 @@ namespace PSS.rih419.Practica_02
             }
         }
 
-        IEnumerable<T> RecorridoAtras()
+        public IEnumerable<T> RecorridoAtras()
         {
 
-            List<T> listaNueva = new List<T>();
+            Secuencia<T> listaNueva = new Secuencia<T>();
             listaNueva.Reverse();
 
             foreach (T obj in listaNueva)
@@ -86,5 +88,50 @@ namespace PSS.rih419.Practica_02
             }
 
         }
-    }
+
+        public IEnumerable<T> RecorridoAscendente(ComparadorPropiedad<T> propiedad)
+        {
+
+            Secuencia<T> listaNueva = new Secuencia<T>();
+
+            foreach (T obj in listaNueva)
+            {
+
+                listaNueva.Añadir(obj);
+
+            }
+
+            listaNueva.Ordenar(propiedad);
+
+            foreach (T obj in listaNueva)
+            {
+
+                yield return obj;
+
+            }
+        }
+
+        public IEnumerable<T> RecorridoDescendente(ComparadorPropiedad<T> propiedad)
+        {
+
+            Secuencia<T> listaNueva = new Secuencia<T>();
+
+            foreach (T obj in listaNueva)
+            {
+
+                listaNueva.Añadir(obj);
+
+            }
+
+            listaNueva.Ordenar(propiedad);
+            listaNueva.Reverse();
+
+            foreach (T obj in listaNueva)
+            {
+
+                yield return obj;
+
+            }
+        }
+    }    
 }
