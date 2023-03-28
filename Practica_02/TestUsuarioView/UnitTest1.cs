@@ -141,7 +141,6 @@ namespace PSS.rih419.Practica_02
             UsuarioView A = new UsuarioView(0, "", "", "", true);
             UsuarioView B = new UsuarioView(1, "", "", "", true);
 
-
             int validacion1 = A.CompareTo(B);
 
             int validacion2 = B.CompareTo(A);
@@ -167,7 +166,6 @@ namespace PSS.rih419.Practica_02
             Assert.AreEqual(validacion1, validacion3);
 
         }
-
 
         [TestMethod]
         public void Mayor_IsFalse()
@@ -249,7 +247,5 @@ namespace PSS.rih419.Practica_02
             Assert.IsFalse(usuario2 <= usuario1);
 
         }
-
-
     }
 } 
