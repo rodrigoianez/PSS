@@ -1,16 +1,15 @@
-using Conecta_4;
+using PSS.rih419.Practica_03;
 
-namespace TestConecta_4
+namespace PSS.rih419.Practica_03
 {
     [TestClass]
-    public class TestConecta_4
+    public class TestJugador
     {
         [TestMethod]
         public void CrearJugadorTest()
         {
             Jugador jugador = new Jugador();
-            Assert.IsNotNull(jugador);
-
+            Assert.IsNotNull(jugador); 
         }
 
         

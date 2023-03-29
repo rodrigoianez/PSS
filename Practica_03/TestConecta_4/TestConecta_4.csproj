@@ -6,6 +6,8 @@
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
+
+    <RootNamespace>PSS.rih419.Practica_03</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
