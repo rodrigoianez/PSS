@@ -13,7 +13,7 @@ using System.Xml.Linq;
 
 namespace PSS.rih419.Practica_02
 {
-    public class ComparadorPropiedad<T> : IComparer<T> where T : IComparable<T>
+    public class ComparadorPropiedad<T> : IComparer<T> 
     {
 
         private PropertyDescriptor GetProperty(string name)
@@ -30,7 +30,7 @@ namespace PSS.rih419.Practica_02
         
         public static PropertyDescriptor valor;
 
-        public ComparadorPropiedad(String nombre)
+        public ComparadorPropiedad(string nombre)
         {
 
             valor = GetProperty(nombre);
