@@ -1,18 +1,19 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace Conecta_4
+namespace PSS.rih419.Practica_03
 {
     public class Jugador : IJugador, IEquatable<Jugador>, IEqualityComparer<Jugador>
     {
+        public Jugador()
+        {
+        }
+
         public Jugador(String nombre)
         {
 
             this.Nombre= nombre;
 
         }
-
-        
-
         public String Nombre { get; set; }
         string IJugador.Nombre { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 

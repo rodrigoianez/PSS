@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Conecta_4
+namespace PSS.rih419.Practica_03
 {
     internal interface IJugador
     {
