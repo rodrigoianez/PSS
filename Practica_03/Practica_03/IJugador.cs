@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Conecta_4
 {
-    internal interface Interface1
+    internal interface IJugador
     {
+
+        String Nombre { get; set; }
+
+        bool Equals(IJugador jugador);
+
+
     }
 }

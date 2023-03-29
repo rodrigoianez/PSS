@@ -8,128 +8,118 @@ namespace PSS.rih419.Practica_02
         UsuarioView usuario2 = new UsuarioView(1, "Cristian", "Correr", "Zapatillas", true);
         UsuarioView usuario3 = new UsuarioView(2, "Miguel Angel", "Saltar", "Rapido", true);
         UsuarioView usuario4 = new UsuarioView(4, "Gelado", "Comprar", "ChocoBoom", true);
+        UsuarioView usuario5 = null ;
 
         [TestMethod]
         public void RecorridoAdelante()
         {
-
             Secuencia<UsuarioView> secuencia1 = new Secuencia<UsuarioView>{
-
                 usuario1, usuario2, usuario3, usuario4
-
             };
-
             Secuencia<UsuarioView> secuencia2 = new Secuencia<UsuarioView>{
-
                 usuario1, usuario2, usuario3, usuario4
-
             };
-
             Secuencia<UsuarioView> secuencia3 = new Secuencia<UsuarioView>();
-
             foreach (UsuarioView usuario in secuencia1.RecorridoAdelante())
             {
-
                 secuencia3.Añadir(usuario);
-
             }
-
             CollectionAssert.AreEqual(secuencia3, secuencia2);
-
         }
 
         [TestMethod]
         public void RecorridoAtras()
         {
             Secuencia<UsuarioView> secuencia1 = new Secuencia<UsuarioView>{
-
                 usuario1, usuario2, usuario3, usuario4
-
             };
-
             Secuencia<UsuarioView> secuencia2 = new Secuencia<UsuarioView>{
-
                 usuario4, usuario3, usuario2, usuario1
-
             };
-
-            Secuencia<UsuarioView> secuencia3 = new Secuencia<UsuarioView>();
-
-            secuencia3.Limpiar();
-
+            Secuencia<UsuarioView> secuencia3 = new Secuencia<UsuarioView>();       
             foreach (UsuarioView usuario in secuencia1.RecorridoAtras())
             {
-
                 secuencia3.Añadir(usuario);
-
             }
-
-            CollectionAssert.AreEqual(secuencia3, secuencia2);
-            
-
+            CollectionAssert.AreEqual(secuencia3, secuencia2);         
         }
 
         [TestMethod]
         public void RecorridoAscendente()
         {
-
             Secuencia<UsuarioView> secuencia1 = new Secuencia<UsuarioView>{
-
                 usuario2, usuario1, usuario3, usuario4
-
             };
-
             Secuencia<UsuarioView> secuencia2 = new Secuencia<UsuarioView>{
-
                 usuario1, usuario2, usuario3, usuario4
-
             };
-
             Secuencia<UsuarioView> secuencia3 = new Secuencia<UsuarioView>();
-
             ComparadorPropiedad<UsuarioView> propiedad = new ComparadorPropiedad<UsuarioView>("Id");
-
             foreach (UsuarioView usuario in secuencia1.RecorridoAscendente(propiedad))
             {
-
                 secuencia3.Añadir(usuario);
-
             }
-
             CollectionAssert.AreEqual(secuencia3, secuencia2);
-
         }
 
         [TestMethod]
         public void RecorridoDescendente()
         {
-
             Secuencia<UsuarioView> secuencia1 = new Secuencia<UsuarioView>{
-
-                usuario2, usuario1, usuario3, usuario4
-
+                usuario1, usuario2, usuario3, usuario4, usuario5
             };
 
             Secuencia<UsuarioView> secuencia2 = new Secuencia<UsuarioView>{
-
-                usuario1, usuario2, usuario3, usuario4
-
+                usuario4, usuario3, usuario2, usuario1, usuario5
             };
 
             Secuencia<UsuarioView> secuencia3 = new Secuencia<UsuarioView>();
-
             ComparadorPropiedad<UsuarioView> propiedad = new ComparadorPropiedad<UsuarioView>("Id");
-
-            foreach (UsuarioView usuario in secuencia1.RecorridoAscendente(propiedad))
+            foreach (UsuarioView usuario in secuencia1.RecorridoDescendente(propiedad))
             {
-
                 secuencia3.Añadir(usuario);
-
             }
-
             CollectionAssert.AreEqual(secuencia3, secuencia2);
-
         }
 
+        [TestMethod]
+        public void RecorridoAscendente_Null()
+        {
+            Secuencia<UsuarioView> secuencia1 = new Secuencia<UsuarioView>{
+                usuario2, usuario1, usuario3, usuario4, usuario5
+            };
+
+            Secuencia<UsuarioView> secuencia2 = new Secuencia<UsuarioView>{
+                usuario5, usuario1, usuario2, usuario3, usuario4
+            };
+
+            Secuencia<UsuarioView> secuencia3 = new Secuencia<UsuarioView>();
+            ComparadorPropiedad<UsuarioView> propiedad = new ComparadorPropiedad<UsuarioView>("Id");
+            foreach (UsuarioView usuario in secuencia1.RecorridoAscendente(propiedad))
+            {
+                secuencia3.Añadir(usuario);
+            }
+            CollectionAssert.AreEqual(secuencia3, secuencia2);
+        }
+
+        [TestMethod]
+        public void RecorridoDescendente_Null()
+        {
+            Secuencia<UsuarioView> secuencia1 = new Secuencia<UsuarioView>{
+                usuario2, usuario1, usuario3, usuario4, usuario5
+            };
+
+            Secuencia<UsuarioView> secuencia2 = new Secuencia<UsuarioView>{
+                usuario4, usuario3, usuario2, usuario1, usuario5
+            };
+
+            Secuencia<UsuarioView> secuencia3 = new Secuencia<UsuarioView>();
+            ComparadorPropiedad<UsuarioView> propiedad = new ComparadorPropiedad<UsuarioView>("Id");
+            foreach (UsuarioView usuario in secuencia1.RecorridoDescendente(propiedad))
+            {
+                secuencia3.Añadir(usuario);
+            }
+            CollectionAssert.AreEqual(secuencia3, secuencia2);
+        }
     }
 }

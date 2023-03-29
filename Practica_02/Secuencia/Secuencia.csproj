@@ -9,9 +9,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ComparadorPropiedad\ComparadorPropiedad.csproj" />
-    <ProjectReference Include="..\TestColeccionUsuarioView\TestColeccionUsuarioView.csproj" />
-    <ProjectReference Include="..\TestComparadorPropiedad\TestComparadorPropiedad.csproj" />
-    <ProjectReference Include="..\TestUsuarioView\TestUsuarioView.csproj" />
     <ProjectReference Include="..\UsuarioView\UsuarioView.csproj" />
   </ItemGroup>
 
