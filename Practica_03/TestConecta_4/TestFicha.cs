@@ -6,7 +6,7 @@ namespace PSS.rih419.Practica_03
     public class TestFicha
     {
         [TestMethod]
-        public void Crear_Ficha()
+        public void Constructor_SinParametros_EsNoNulo()
         {
             Ficha ficha = new Ficha();
             Assert.IsNotNull(ficha);
@@ -16,7 +16,16 @@ namespace PSS.rih419.Practica_03
         public void Constructor_ParametroColor_EsIgual() 
         {
             Ficha ficha = new Ficha(ColorFicha.Rojo);
-            Assert.AreEqual(ColorFicha.Rojo, ficha.Color);
+            bool booleano = ficha.Color == ColorFicha.Rojo;
+            Assert.IsTrue(booleano);
+        }
+
+        [TestMethod]
+        public void Constructor_SinParametroColor_EsSinColor()
+        {
+            Ficha ficha = new Ficha(ColorFicha.SinColor);
+            bool booleano = ficha.Color == ColorFicha.SinColor;
+            Assert.IsTrue(booleano);
         }
 
     }
