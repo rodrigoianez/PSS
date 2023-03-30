@@ -16,8 +16,19 @@
             _casilla = new Ficha[dimension, dimension];
         }
 
-         int _dimension = 9;
+        int _dimension = 9;
+        public int numeroCasillasOcupadas = 0;
+
         public int Dimension { get { return _dimension; } }
+
+        public bool EsFinJuego()
+        { 
+            if (numeroCasillasOcupadas == (_dimension*_dimension)){
+
+                return true;
+            }
+            else return false;
+        }
 
         public Ficha this [int fila, int columna]
         {
@@ -39,16 +50,13 @@
             {
                 if (_casilla[posicion.Fila, posicion.Columna] == null)
                 {
-
                     _casilla[posicion.Fila, posicion.Columna] = ficha;
+                    numeroCasillasOcupadas++;
                     return true;
-
                 }
-                else
-                    return false;
+                else return false;
             }
-            else
-                return false;
+            else return false;
         }
     }
 }

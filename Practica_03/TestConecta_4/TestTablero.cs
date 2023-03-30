@@ -96,5 +96,37 @@ namespace PSS.rih419.Practica_03
             Assert.Fail("Se esperaba una IndexOutOfRangeException");
 
         }
+        [TestMethod]
+        public void NumeroCasillasOcupadas_TableroConUnaFichaOcupada_EsUno()
+        {
+
+            Tablero tablero = new Tablero();
+            var ficha = new Ficha(ColorFicha.Negro);
+            var posicion = new Posicion(1, 1);
+            tablero.PonerFichaPosicion(ficha, posicion);
+            bool booleano = tablero.numeroCasillasOcupadas == 1;
+            Assert.IsTrue(booleano);
+
+        }
+
+        [TestMethod]
+        public void EsFinJuego_TableroSinFichas_EsFalse()
+        {
+
+            Tablero tablero = new Tablero();
+            Assert.IsFalse(tablero.EsFinJuego());
+        }
+
+        [TestMethod]
+        public void EsFinJuego_TableroLleno_EsTrue()
+        {
+            Tablero tablero = new Tablero(1);
+            var ficha = new Ficha(ColorFicha.Rojo);
+            var posicion = new Posicion(0, 0);
+            tablero.PonerFichaPosicion(ficha, posicion);
+            Assert.IsTrue(tablero.EsFinJuego());
+        }
+
+
     }
 }
