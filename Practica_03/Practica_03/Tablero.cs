@@ -2,33 +2,53 @@
 {
     public class Tablero
     {
-        private Ficha[,] casilla;
+        private Ficha[ , ] _casilla;
+        
 
         public Tablero() {
 
-            casilla = new Ficha[9, 9];
+            _casilla = new Ficha[9, 9];
 
         }
-
-           
         public Tablero(int dimension)
         {
-            Dimension = dimension;
-            casilla = new Ficha[dimension, dimension];
+            _dimension = dimension;
+            _casilla = new Ficha[dimension, dimension];
         }
 
-        public int Dimension { get; }
+         int _dimension = 9;
+        public int Dimension { get { return _dimension; } }
 
-        public Ficha this[int fila, int columna]
+        public Ficha this [int fila, int columna]
         {
 
-            get
-            {
-                if (columna < 0 || columna > 9 || fila < 0 || fila > 9) throw new ArgumentException("El jugador tiene que tener ficha");
-                return casilla[fila, columna];  }
-            set { casilla[fila, columna] = value; }
+            get{
+                
+                return _casilla[fila, columna];  }
+
+            set { _casilla[fila, columna] = value; }
 
         }
 
+        public bool PonerFichaPosicion(Ficha ficha, Posicion posicion)
+        {
+
+
+            if (posicion.Fila < _dimension && posicion.Columna < _dimension ||
+                posicion.Fila >= 0 && posicion.Columna >= 0)
+            {
+                if (_casilla[posicion.Fila, posicion.Columna] == null)
+                {
+
+                    _casilla[posicion.Fila, posicion.Columna] = ficha;
+                    return true;
+
+                }
+                else
+                    return false;
+            }
+            else
+                return false;
+        }
     }
 }
