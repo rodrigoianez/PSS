@@ -7,21 +7,47 @@
 
         public Juego()
         {
+
         }
 
         public void AnadirJugador(Jugador jugador)
         {
-           
             listaJugadores.Add(jugador.Nombre,jugador);
             NumeroJugadores++;
-
-
         }
 
         public Jugador ObtenerJugador(string nombre)
         {
-
             return listaJugadores[nombre];
+        }
+
+        public bool IndiceAletorio()
+        {
+            Random random = new Random();
+            
+            if (random.Next(0, 1) == 0)
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        public Jugador EmpiezaJugadorAleatorio()
+        {
+
+            bool booleano = IndiceAletorio();
+
+            Jugador jugador1 = new Jugador("Jugador1");
+            Jugador jugador2 = new Jugador("Jugador2");
+
+            if (booleano == true)
+            {
+
+                return jugador1;
+
+            }
+
+            else return jugador2;
 
         }
     }

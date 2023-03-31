@@ -12,8 +12,8 @@
         }
         public Tablero(int dimension)
         {
-            _dimension = dimension;
-            _casilla = new Ficha[dimension, dimension];
+            _dimension =  dimension;
+            _casilla = new Ficha[_dimension, _dimension];
         }
 
         int _dimension = 9;
@@ -33,11 +33,8 @@
         public Ficha this [int fila, int columna]
         {
 
-            get{
-                
-                return _casilla[fila, columna];  }
-
-            set { _casilla[fila, columna] = value; }
+            get{  return _casilla[fila, columna];  }
+            set{ _casilla[fila, columna] = value; }
 
         }
 

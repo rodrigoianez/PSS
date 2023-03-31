@@ -35,5 +35,27 @@ namespace PSS.rih419.Practica_03
             bool resultado = jugadorDiccionario == jugador2;
             Assert.IsTrue(resultado);
         }
+
+        [TestMethod]
+        public void EmpiezaJugadorAleatorio_SinParametros_JugadorEsJugador()
+        {
+            Juego juego = new Juego();
+            Jugador jugador1 = new Jugador("Jugador1");
+            juego.AnadirJugador(jugador1);
+            Jugador jugador2 = new Jugador("Jugador2");
+            bool booleano = juego.IndiceAletorio();
+            if (booleano == true)
+            {
+                Assert.AreEqual(juego.EmpiezaJugadorAleatorio(), jugador1);
+
+            }
+            if (booleano == false)
+            {
+                Assert.AreEqual(juego.EmpiezaJugadorAleatorio(), jugador2);
+
+            }
+        }
+
+
     }
 }
