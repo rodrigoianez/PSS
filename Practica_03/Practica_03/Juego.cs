@@ -37,9 +37,7 @@
 
             bool booleano = IndiceAletorio();
 
-            Jugador jugador1 = new Jugador("Jugador1");
-            Jugador jugador2 = new Jugador("Jugador2");
-
+            lista
             if (booleano == true)
             {
 
