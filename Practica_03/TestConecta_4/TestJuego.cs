@@ -6,6 +6,7 @@ namespace PSS.rih419.Practica_03
     [TestClass]
     public class TestJuego
     {
+
         [TestMethod]
         public void Constructor_SinParametros_EsNoNulo()
         {
@@ -44,6 +45,7 @@ namespace PSS.rih419.Practica_03
             juego.AnadirJugador(jugador1);
             Jugador jugador2 = new Jugador("Jugador2");
             bool booleano = juego.IndiceAletorio();
+
             if (booleano == true)
             {
                 Assert.AreEqual(juego.EmpiezaJugadorAleatorio(), jugador1);

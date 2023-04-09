@@ -4,6 +4,7 @@
     {
         public int NumeroJugadores;
         private Dictionary<string,Jugador> listaJugadores = new Dictionary<string,Jugador>();
+        
 
         public Juego()
         {
@@ -37,7 +38,10 @@
 
             bool booleano = IndiceAletorio();
 
-            lista
+            Jugador jugador1 = new Jugador("Jugador1");
+            
+            Jugador jugador2 = new Jugador("Jugador2");
+
             if (booleano == true)
             {
 
