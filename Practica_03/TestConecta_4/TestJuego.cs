@@ -58,6 +58,18 @@ namespace PSS.rih419.Practica_03
             }
         }
 
+        public void ObtenerJugador_ParametrosNombreJuugador_PosicionLista()
+        {
+            Juego juego = new Juego();
+            Jugador jugador1 = new Jugador("Jugador1");
+            juego.AnadirJugador(jugador1);
+            Jugador jugador2 = new Jugador("Jugador2");
+            juego.AnadirJugador(jugador2);
+            Jugador jugadorDiccionario = juego.ObtenerJugador("Jugador2");
+            bool resultado = jugadorDiccionario == jugador2;
+            Assert.IsTrue(resultado);
+        }
+
 
     }
 }

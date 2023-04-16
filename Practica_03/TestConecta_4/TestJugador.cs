@@ -51,8 +51,18 @@ namespace PSS.rih419.Practica_03
         }
 
 
+        [TestMethod]
+        public void Ficha_ColorRojo_ColoorFichaJugadorEsIgual()
+        {
+            Jugador jugador = new Jugador();
+            jugador.Ficha = new Ficha(ColorFicha.Rojo);
+            bool booleano = (jugador.Ficha.Color == ColorFicha.Rojo);
+            Assert.IsTrue(booleano);
+        }
 
-        
+
+
+
     }
 
 }
