@@ -19,6 +19,9 @@
             Jugador j1 = new Jugador(nombreJugador1);
             Jugador j2 = new Jugador(nombreJugador2);
 
+
+           
+
             Console.WriteLine("Turno de " + Juego.EmpiezaJugadorAleatorio(j1, j2).toString());
 
         }

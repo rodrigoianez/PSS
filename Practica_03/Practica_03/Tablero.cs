@@ -38,9 +38,16 @@
 
         }
 
-        public bool PonerFichaPosicion(Ficha ficha, Posicion posicion)
+        public void AsignarFicha(Jugador j1, Jugador j2)
         {
 
+          
+        
+        }
+
+
+        public bool PonerFichaPosicion(Ficha ficha, Posicion posicion)
+        {
 
             if (posicion.Fila < _dimension && posicion.Columna < _dimension ||
                 posicion.Fila >= 0 && posicion.Columna >= 0)

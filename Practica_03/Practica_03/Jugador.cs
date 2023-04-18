@@ -17,7 +17,8 @@
         public static Ficha Ficha { get { if (_ficha == null) throw new ArgumentException("El jugador tiene que tener ficha");
                 else return _ficha;
                         }
-            set { _ficha = value; } }    
+            set { _ficha = value; }
+        }    
 
         public  Jugador(string nombre)
         {
