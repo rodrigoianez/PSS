@@ -26,11 +26,11 @@
             Console.WriteLine("La ficha de " + nombreJugador1 + " es " + j1.Ficha.Color);
             Console.WriteLine("La ficha de " + nombreJugador2 + " es " + j2.Ficha.Color);
 
-
         }
 
-    }
 
+
+    }
 }
 
 
