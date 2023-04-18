@@ -19,12 +19,24 @@
             Jugador j1 = new Jugador(nombreJugador1);
             Jugador j2 = new Jugador(nombreJugador2);
 
-            Console.WriteLine("Turno de " + Juego.EmpiezaJugadorAleatorio(j1, j2).toString());
-
             Tablero.AsignarFicha(j1, j2);
 
             Console.WriteLine("La ficha de " + nombreJugador1 + " es " + j1.Ficha.Color);
             Console.WriteLine("La ficha de " + nombreJugador2 + " es " + j2.Ficha.Color);
+
+            String jugador1 = Juego.EmpiezaJugadorAleatorio(j1, j2).toString();
+
+            Console.WriteLine("Turno de " + jugador1);
+
+            Console.WriteLine("¿En que columna quiere insertar la ficha?");
+
+            String c = Console.ReadLine();
+            int columna = Int32.Parse(c);
+
+            Tablero.PonerFichaPosicion(j1.Ficha, columna);
+
+            
+
 
         }
 

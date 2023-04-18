@@ -52,64 +52,6 @@ namespace PSS.rih419.Practica_03
         }
 
         [TestMethod]
-        public void PonerFichaPosicion_PongoFicha_FichaEsIgualColor()
-        {
-            Tablero tablero = new Tablero();
-            var ficha = new Ficha(ColorFicha.Negro);
-            var posicion = new Posicion(5, 5);
-            tablero.PonerFichaPosicion(ficha, posicion);
-            bool booleano = tablero[5, 5].Color == ficha.Color;
-            Assert.IsTrue(booleano);
-        }
-
-        [TestMethod]
-        public void PonerFichaPosicion_PongoFichaCasillaLibre_EsTrue()
-        {
-            Tablero tablero = new Tablero();
-            var ficha = new Ficha(ColorFicha.Negro);
-            var posicion = new Posicion(5, 5);
-            bool booleano = tablero.PonerFichaPosicion(ficha, posicion);
-            Assert.IsTrue(booleano);
-        }
-
-        [TestMethod]
-        public void PonerFichaPosicion_PongoFichaCasillaOcupada_EsFalse()
-        {
-            Tablero tablero = new Tablero();
-            var ficha = new Ficha(ColorFicha.Negro);
-            var posicion = new Posicion(5, 5);
-            bool booleano = tablero.PonerFichaPosicion(ficha, posicion);
-            bool booleano2 = tablero.PonerFichaPosicion(ficha, posicion);
-            Assert.IsFalse(booleano2);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(IndexOutOfRangeException))]
-        public void PonerFichaPosicion_FueraDelTablero_EsFalse()
-        {
-
-            Tablero tablero = new Tablero(1);
-            var ficha = new Ficha(ColorFicha.Negro);
-            var posicion = new Posicion(5, 5);
-            bool booleano = tablero.PonerFichaPosicion(ficha, posicion);
-
-            Assert.Fail("Se esperaba una IndexOutOfRangeException");
-
-        }
-        [TestMethod]
-        public void NumeroCasillasOcupadas_TableroConUnaFichaOcupada_EsUno()
-        {
-
-            Tablero tablero = new Tablero();
-            var ficha = new Ficha(ColorFicha.Negro);
-            var posicion = new Posicion(1, 1);
-            tablero.PonerFichaPosicion(ficha, posicion);
-            bool booleano = tablero.numeroCasillasOcupadas == 1;
-            Assert.IsTrue(booleano);
-
-        }
-
-        [TestMethod]
         public void EsFinJuego_TableroSinFichas_EsFalse()
         {
 
@@ -122,25 +64,38 @@ namespace PSS.rih419.Practica_03
         {
             Tablero tablero = new Tablero(1);
             var ficha = new Ficha(ColorFicha.Rojo);
-            var posicion = new Posicion(0, 0);
-            tablero.PonerFichaPosicion(ficha, posicion);
+            int columna = 0;
+            Tablero.PonerFichaPosicion(ficha, columna);
             Assert.IsTrue(tablero.EsFinJuego());
         }
 
         [TestMethod]
         public void AsignarFicha_AsignoFichas_EsIgual()
         {
-           
+
             Jugador j1 = new Jugador();
             Jugador j2 = new Jugador();
 
-            Tablero.AsignarFicha(j1,j2);
+            Tablero.AsignarFicha(j1, j2);
 
             Ficha ficha1 = new Ficha(ColorFicha.Rojo);
-            Assert.AreEqual(j1.Ficha.Color,ficha1.Color);
+            Assert.AreEqual(j1.Ficha.Color, ficha1.Color);
 
             Ficha ficha2 = new Ficha(ColorFicha.Negro);
             Assert.AreEqual(j2.Ficha.Color, ficha2.Color);
+
+        }
+
+        [TestMethod]
+        public void PonerfichaPosicion_PongoFicha_EsIgual()
+        {
+
+            Ficha ficha = new Ficha(ColorFicha.Rojo);
+            int columna = 0;
+            Tablero.PonerFichaPosicion(ficha, columna);
+
+            Assert.AreNotEqual(Tablero.casilla[8, 0], null);
+
 
         }
     }
