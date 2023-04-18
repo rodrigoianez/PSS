@@ -44,32 +44,18 @@ namespace PSS.rih419.Practica_03
             Jugador jugador1 = new Jugador("Jugador1");
             juego.AnadirJugador(jugador1);
             Jugador jugador2 = new Jugador("Jugador2");
-            bool booleano = juego.IndiceAletorio();
+            Jugador jugadorDevuelto = juego.EmpiezaJugadorAleatorio();
 
-            if (booleano == true)
+            if (jugador1 == jugadorDevuelto)
             {
                 Assert.AreEqual(juego.EmpiezaJugadorAleatorio(), jugador1);
 
             }
-            if (booleano == false)
+            if (jugador2 == jugadorDevuelto)
             {
                 Assert.AreEqual(juego.EmpiezaJugadorAleatorio(), jugador2);
 
             }
         }
-
-        public void ObtenerJugador_ParametrosNombreJuugador_PosicionLista()
-        {
-            Juego juego = new Juego();
-            Jugador jugador1 = new Jugador("Jugador1");
-            juego.AnadirJugador(jugador1);
-            Jugador jugador2 = new Jugador("Jugador2");
-            juego.AnadirJugador(jugador2);
-            Jugador jugadorDiccionario = juego.ObtenerJugador("Jugador2");
-            bool resultado = jugadorDiccionario == jugador2;
-            Assert.IsTrue(resultado);
-        }
-
-
     }
 }

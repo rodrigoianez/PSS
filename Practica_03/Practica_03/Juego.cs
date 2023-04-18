@@ -22,7 +22,7 @@
             return listaJugadores[nombre];
         }
 
-        public bool IndiceAletorio()
+        public bool IndiceAleatorio()
         {
             Random random = new Random();
             
@@ -36,7 +36,7 @@
         public Jugador EmpiezaJugadorAleatorio()
         {
 
-            bool booleano = IndiceAletorio();
+            bool booleano = IndiceAleatorio();
 
             Jugador jugador1 = new Jugador("Jugador1");
             
