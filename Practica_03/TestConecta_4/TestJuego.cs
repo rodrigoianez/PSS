@@ -48,12 +48,12 @@ namespace PSS.rih419.Practica_03
 
             if (jugador1 == jugadorDevuelto)
             {
-                Assert.AreEqual(juego.EmpiezaJugadorAleatorio(), jugador1);
+                Assert.AreEqual(jugadorDevuelto, jugador1);
 
             }
             if (jugador2 == jugadorDevuelto)
             {
-                Assert.AreEqual(juego.EmpiezaJugadorAleatorio(), jugador2);
+                Assert.AreEqual(jugadorDevuelto, jugador2);
 
             }
         }

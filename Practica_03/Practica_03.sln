@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conecta_4", "Practica_03\Conecta_4.csproj", "{21C9B51E-8D18-4B4B-AFFD-C2618280F7AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConecta_4", "TestConecta_4\TestConecta_4.csproj", "{F88ABD6C-7CB5-4C32-8789-FB63B04DF0B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConecta_4", "TestConecta_4\TestConecta_4.csproj", "{F88ABD6C-7CB5-4C32-8789-FB63B04DF0B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjecutableConecta4", "EjecutableConecta4\EjecutableConecta4.csproj", "{229AF7F0-16CE-4BC9-8B16-18725D3157EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F88ABD6C-7CB5-4C32-8789-FB63B04DF0B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F88ABD6C-7CB5-4C32-8789-FB63B04DF0B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F88ABD6C-7CB5-4C32-8789-FB63B04DF0B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{229AF7F0-16CE-4BC9-8B16-18725D3157EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{229AF7F0-16CE-4BC9-8B16-18725D3157EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{229AF7F0-16CE-4BC9-8B16-18725D3157EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{229AF7F0-16CE-4BC9-8B16-18725D3157EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

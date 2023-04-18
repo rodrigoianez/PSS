@@ -1,9 +1,9 @@
 ﻿namespace PSS.rih419.Practica_03
 {
-    public class Juego
+    public  class Juego
     {
-        public int NumeroJugadores;
-        private Dictionary<string,Jugador> listaJugadores = new Dictionary<string,Jugador>();
+        public static int NumeroJugadores;
+        private static Dictionary<string,Jugador> listaJugadores = new Dictionary<string,Jugador>();
         
 
         public Juego()
@@ -11,46 +11,41 @@
 
         }
 
-        public void AnadirJugador(Jugador jugador)
+        public static void AnadirJugador(Jugador jugador)
         {
             listaJugadores.Add(jugador.Nombre,jugador);
             NumeroJugadores++;
         }
 
-        public Jugador ObtenerJugador(string nombre)
+        public static Jugador ObtenerJugador(string nombre)
         {
             return listaJugadores[nombre];
         }
 
-        public bool IndiceAleatorio()
+        public static bool IndiceAleatorio()
         {
             Random random = new Random();
             
-            if (random.Next(0, 1) == 0)
+            if (random.Next(0,2) == 0)
             {
                 return true;
             }
             else return false;
         }
 
-        public Jugador EmpiezaJugadorAleatorio()
+        public static Jugador EmpiezaJugadorAleatorio(Jugador j1, Jugador j2)
         {
 
             bool booleano = IndiceAleatorio();
-
-            Jugador jugador1 = new Jugador("Jugador1");
-            
-            Jugador jugador2 = new Jugador("Jugador2");
+          
 
             if (booleano == true)
             {
 
-                return jugador1;
-
+                return j1;
             }
 
-            else return jugador2;
-
+            else return j2;
         }
     }
 }
