@@ -15,6 +15,8 @@
         {
             _color = color;
         }
+
+       
     }
 
     public enum ColorFicha

@@ -2,7 +2,7 @@
 {
     public  class Juego
     {
-        public static int NumeroJugadores;
+        public  int NumeroJugadores;
         private static Dictionary<string,Jugador> listaJugadores = new Dictionary<string,Jugador>();
         
 
@@ -11,13 +11,13 @@
 
         }
 
-        public static void AnadirJugador(Jugador jugador)
+        public  void AnadirJugador(Jugador jugador)
         {
             listaJugadores.Add(jugador.Nombre,jugador);
             NumeroJugadores++;
         }
 
-        public static Jugador ObtenerJugador(string nombre)
+        public  Jugador ObtenerJugador(string nombre)
         {
             return listaJugadores[nombre];
         }
@@ -33,12 +33,10 @@
             else return false;
         }
 
-        public static Jugador EmpiezaJugadorAleatorio(Jugador j1, Jugador j2)
+        public  static Jugador EmpiezaJugadorAleatorio(Jugador j1, Jugador j2)
         {
 
             bool booleano = IndiceAleatorio();
-          
-
             if (booleano == true)
             {
 

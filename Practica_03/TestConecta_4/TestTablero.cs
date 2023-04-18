@@ -127,6 +127,21 @@ namespace PSS.rih419.Practica_03
             Assert.IsTrue(tablero.EsFinJuego());
         }
 
+        [TestMethod]
+        public void AsignarFicha_AsignoFichas_EsIgual()
+        {
+           
+            Jugador j1 = new Jugador();
+            Jugador j2 = new Jugador();
 
+            Tablero.AsignarFicha(j1,j2);
+
+            Ficha ficha1 = new Ficha(ColorFicha.Rojo);
+            Assert.AreEqual(j1.Ficha.Color,ficha1.Color);
+
+            Ficha ficha2 = new Ficha(ColorFicha.Negro);
+            Assert.AreEqual(j2.Ficha.Color, ficha2.Color);
+
+        }
     }
 }

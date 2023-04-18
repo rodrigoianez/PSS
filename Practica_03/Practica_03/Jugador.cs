@@ -13,15 +13,29 @@
             Nombre = "Jugador" + numJugadores;
         }
 
-        private static Ficha _ficha;
-        public static Ficha Ficha { get { if (_ficha == null) throw new ArgumentException("El jugador tiene que tener ficha");
+        public  Ficha _ficha;
+
+        public  Ficha Ficha { 
+            
+            get { if (_ficha == null) throw new ArgumentException("El jugador tiene que tener ficha");
                 else return _ficha;
-                        }
-            set { _ficha = value; }
+            }
+
+            set { _ficha = value;
+            }
+
         }    
 
-        public  Jugador(string nombre)
+        public Jugador(Ficha fichaJugador)
         {
+
+            Ficha = fichaJugador;
+
+        }
+
+        public Jugador(string nombre)
+        {
+
             numJugadores++;
             Nombre = nombre;
         }
@@ -32,9 +46,5 @@
             return this.Nombre.ToString();
 
         }
-        
-
-        
     }
-
 }

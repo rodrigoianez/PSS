@@ -1,4 +1,6 @@
-﻿namespace PSS.rih419.Practica_03
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace PSS.rih419.Practica_03
 {
     public class Tablero
     {
@@ -38,11 +40,15 @@
 
         }
 
-        public void AsignarFicha(Jugador j1, Jugador j2)
+        public static void AsignarFicha(Jugador j1, Jugador j2)
         {
 
-          
-        
+            Ficha fichaJ1 = new Ficha(ColorFicha.Rojo);
+            Ficha fichaJ2 = new Ficha(ColorFicha.Negro);
+
+            j1.Ficha = fichaJ1;
+            j2.Ficha = fichaJ2;
+
         }
 
 

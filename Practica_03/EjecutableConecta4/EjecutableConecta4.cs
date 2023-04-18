@@ -19,10 +19,13 @@
             Jugador j1 = new Jugador(nombreJugador1);
             Jugador j2 = new Jugador(nombreJugador2);
 
-
-           
-
             Console.WriteLine("Turno de " + Juego.EmpiezaJugadorAleatorio(j1, j2).toString());
+
+            Tablero.AsignarFicha(j1, j2);
+
+            Console.WriteLine("La ficha de " + nombreJugador1 + " es " + j1.Ficha.Color);
+            Console.WriteLine("La ficha de " + nombreJugador2 + " es " + j2.Ficha.Color);
+
 
         }
 
