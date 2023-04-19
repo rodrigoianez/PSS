@@ -70,15 +70,25 @@ namespace PSS.rih419.Practica_03
         [TestMethod]
         public void PonerfichaPosicion_PongoFicha_EsIgual()
         {
-
             Ficha ficha = new Ficha(ColorFicha.Rojo);
             int columna = 0;
             Tablero tablero = new Tablero();
             tablero.PonerFichaPosicion(ficha, columna);
 
             Assert.AreNotEqual(tablero.casilla[8, 0], null);
+        }
 
+        [TestMethod]
+        public void HayGanador_HayUnGanador_EsTrue()
+        {
+            
+            Ficha ficha = new Ficha(ColorFicha.Rojo);
+            int columna = 0;
+            Tablero tablero = new Tablero();
+            Jugador jugador = new Jugador();
+            bool booleano = tablero.HayGanador(jugador);
 
+            Assert.IsTrue(booleano);
         }
     }
 }

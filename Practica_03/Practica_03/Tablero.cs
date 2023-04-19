@@ -59,12 +59,34 @@ namespace PSS.rih419.Practica_03
                         casilla[i, columna] = ficha;
                         numeroCasillasOcupadas++;
                         return true;
+                        break;
                         
                     }
                     else  continue;
                 }
             }
             return false;
+        }
+
+
+        public bool HayGanador(Jugador jugador)
+        {
+            
+            for (int fila = 0; fila < 9; fila++)
+            {
+                for (int columna = 0; columna < 6; columna++)
+                {
+                    if (casilla[fila, columna] != null &&
+                        casilla[fila, columna] == casilla[fila, columna + 1] &&
+                        casilla[fila, columna] == casilla[fila, columna + 2] &&
+                        casilla[fila, columna] == casilla[fila, columna + 3])
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+
         }
 
         public override String ToString()
