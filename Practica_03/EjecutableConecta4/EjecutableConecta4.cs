@@ -1,6 +1,6 @@
 ﻿namespace PSS.rih419.Practica_03
 {
-    public static class EjecutableConecta4
+    public  class EjecutableConecta4
     {
 
         public static void Main(String[] args)
@@ -19,29 +19,95 @@
             Jugador j1 = new Jugador(nombreJugador1);
             Jugador j2 = new Jugador(nombreJugador2);
 
-            Tablero.AsignarFicha(j1, j2);
+            Tablero tablero = new Tablero();
+
+            tablero.AsignarFicha(j1, j2);
 
             Console.WriteLine("La ficha de " + nombreJugador1 + " es " + j1.Ficha.Color);
             Console.WriteLine("La ficha de " + nombreJugador2 + " es " + j2.Ficha.Color);
 
-            String jugador1 = Juego.EmpiezaJugadorAleatorio(j1, j2).toString();
-
-            Console.WriteLine("Turno de " + jugador1);
-
-            Console.WriteLine("¿En que columna quiere insertar la ficha?");
-
-            String c = Console.ReadLine();
-            int columna = Int32.Parse(c);
-
-            Tablero.PonerFichaPosicion(j1.Ficha, columna);
-
-            
+            Jugador jugadorTurno = Juego.EmpiezaJugadorAleatorio(j1, j2);
 
 
+            if (jugadorTurno == j1)
+            {
+                for (int turno = 0; turno < 81; turno++)
+                {
+                    if (turno % 2 == 0)
+                    {
+
+                        Console.WriteLine("Turno de " + j1.toString());
+                        Console.WriteLine("¿En que columna quiere insertar la ficha?");
+
+                        String c = Console.ReadLine();
+                        int columna = Int32.Parse(c);
+                        bool booleano = tablero.PonerFichaPosicion(j1.Ficha, columna);
+
+                        if (booleano = true) Console.WriteLine("La ficha se ha insertado correctamente");
+                        else Console.WriteLine("Se ha producido un error");
+
+                        Console.WriteLine(tablero.ToString());
+
+
+                    }
+                    else if (!(turno % 2 == 0))
+                    {
+
+                        Console.WriteLine("Turno de " + j2.toString());
+                        Console.WriteLine("¿En que columna quiere insertar la ficha?");
+
+                        String c = Console.ReadLine();
+                        int columna = Int32.Parse(c);
+                        bool booleano = tablero.PonerFichaPosicion(j2.Ficha, columna);
+
+                        if (booleano = true) Console.WriteLine("La ficha se ha insertado correctamente");
+                        else Console.WriteLine("Se ha producido un error");
+
+                        Console.WriteLine(tablero.ToString());
+
+                    }
+                }
+            }
+            else if (jugadorTurno == j2)
+            {
+                for (int turno = 0; turno < 81; turno++)
+                {
+                    if (turno % 2 == 0)
+                    {
+
+                        Console.WriteLine("Turno de " + j2.toString());
+                        Console.WriteLine("¿En que columna quiere insertar la ficha?");
+
+                        String c = Console.ReadLine();
+                        int columna = Int32.Parse(c);
+                        bool booleano = tablero.PonerFichaPosicion(j2.Ficha, columna);
+
+                        if (booleano = true) Console.WriteLine("La ficha se ha insertado correctamente");
+                        else Console.WriteLine("Se ha producido un error");
+
+                        Console.WriteLine(tablero.ToString());
+
+
+                    }
+                    else if (!(turno % 2 == 0))
+                    {
+
+                        Console.WriteLine("Turno de " + j1.toString());
+                        Console.WriteLine("¿En que columna quiere insertar la ficha?");
+
+                        String c = Console.ReadLine();
+                        int columna = Int32.Parse(c);
+                        bool booleano = tablero.PonerFichaPosicion(j1.Ficha, columna);
+
+                        if (booleano = true) Console.WriteLine("La ficha se ha insertado correctamente");
+                        else Console.WriteLine("Se ha producido un error");
+
+                        Console.WriteLine(tablero.ToString());
+
+                    }
+                }
+            }        
         }
-
-
-
     }
 }
 

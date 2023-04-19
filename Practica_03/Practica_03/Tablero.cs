@@ -53,18 +53,16 @@ namespace PSS.rih419.Practica_03
             if( columna >= 0 && columna < 9)
             {
                 for(int i = 8; i >= 0 ; i--)
-                {
+                {   
                     if (casilla[i, columna] == null)
                     {
                         casilla[i, columna] = ficha;
                         return true;
-                        break;
-
+                        
                     }
-                    else return false;     
+                    else  continue;
                 }
-            } else return false;
-
+            }
             return false;
         }
 
@@ -80,8 +78,20 @@ namespace PSS.rih419.Practica_03
                 {
                     if (casilla[i, j] != null)
                     {
-                        sb.Append("| ");
-                        sb.Append(casilla[i, j].Color.ToString());
+
+                        Ficha ficha1 = new Ficha(ColorFicha.Rojo);
+                        Ficha ficha2 = new Ficha(ColorFicha.Negro);
+
+                        if (casilla[i, j].Color.ToString() == ficha1.Color.ToString())
+                        {
+                            sb.Append("| ");
+                            sb.Append(casilla[i, j].Color.ToString());
+                        } 
+                        else if (casilla[i, j].Color.ToString() == ficha2.Color.ToString())
+                        {
+                            sb.Append("|");
+                            sb.Append(casilla[i, j].Color.ToString());
+                        }
 
 
                     }
