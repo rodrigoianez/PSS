@@ -14,14 +14,14 @@ namespace PSS.rih419.Practica_03
         public Tablero() {
 
             casilla = new Ficha[9, 9];
-
+           
         }
         
         public int Dimension { get { return dimension; } }
 
         public bool EsFinJuego()
         { 
-            if (numeroCasillasOcupadas == (dimension * dimension)){
+            if (numeroCasillasOcupadas == (9 * 9)){
 
                 return true;
             }
@@ -57,6 +57,7 @@ namespace PSS.rih419.Practica_03
                     if (casilla[i, columna] == null)
                     {
                         casilla[i, columna] = ficha;
+                        numeroCasillasOcupadas++;
                         return true;
                         
                     }

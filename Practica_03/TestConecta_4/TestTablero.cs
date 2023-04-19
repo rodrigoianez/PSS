@@ -43,11 +43,10 @@ namespace PSS.rih419.Practica_03
         public void EsFinJuego_TableroLleno_EsTrue()
         {
             Tablero tablero = new Tablero();
-            var ficha = new Ficha(ColorFicha.Rojo);
-            int columna = 0;
-            int numeroCasilasOcupadas = 81;
-            tablero.PonerFichaPosicion(ficha, columna);
-            Assert.IsTrue(tablero.EsFinJuego());
+            int numeroCasillasOcupadas;
+            tablero.numeroCasillasOcupadas = 81;
+            bool booleano = tablero.EsFinJuego();
+            Assert.IsTrue(booleano);
         }
 
         [TestMethod]

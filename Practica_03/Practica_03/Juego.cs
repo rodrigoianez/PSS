@@ -5,7 +5,6 @@
         public  int NumeroJugadores;
         private  Dictionary<string,Jugador> listaJugadores = new Dictionary<string,Jugador>();
         
-
         public Juego()
         {
 
