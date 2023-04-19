@@ -33,38 +33,48 @@
             {
                 for (int turno = 0; turno < 81; turno++)
                 {
-                    if (turno % 2 == 0)
+                    bool condidion1 = false;
+                    bool condicion2 = false;
+
+                    if (condidion1 = false|| condicion2 == false)
                     {
+                        if (turno % 2 == 0)
+                        {
 
-                        Console.WriteLine("Turno de " + j1.toString());
-                        Console.WriteLine("¿En que columna quiere insertar la ficha?");
+                            Console.WriteLine("Turno de " + j1.toString());
+                            Console.WriteLine("¿En que columna quiere insertar la ficha?");
 
-                        String c = Console.ReadLine();
-                        int columna = Int32.Parse(c);
-                        bool booleano = tablero.PonerFichaPosicion(j1.Ficha, columna);
+                            String c = Console.ReadLine();
+                            int columna = Int32.Parse(c);
+                            bool booleano = tablero.PonerFichaPosicion(j1.Ficha, columna);
 
-                        if (booleano = true) Console.WriteLine("La ficha se ha insertado correctamente");
-                        else Console.WriteLine("Se ha producido un error");
+                            if (booleano = true) Console.WriteLine("La ficha se ha insertado correctamente");
+                            else Console.WriteLine("Se ha producido un error");
+                                
+                            Console.WriteLine(tablero.ToString());
+                            bool condicion1 = tablero.EsFinJuego();
+                            condicion2 = tablero.HayGanador(j1);
 
-                        Console.WriteLine(tablero.ToString());
 
+                        }
+                        else if (!(turno % 2 == 0))
+                        {
 
-                    }
-                    else if (!(turno % 2 == 0))
-                    {
+                            Console.WriteLine("Turno de " + j2.toString());
+                            Console.WriteLine("¿En que columna quiere insertar la ficha?");
 
-                        Console.WriteLine("Turno de " + j2.toString());
-                        Console.WriteLine("¿En que columna quiere insertar la ficha?");
+                            String c = Console.ReadLine();
+                            int columna = Int32.Parse(c);
+                            bool booleano = tablero.PonerFichaPosicion(j2.Ficha, columna);
 
-                        String c = Console.ReadLine();
-                        int columna = Int32.Parse(c);
-                        bool booleano = tablero.PonerFichaPosicion(j2.Ficha, columna);
+                            if (booleano = true) Console.WriteLine("La ficha se ha insertado correctamente");
+                            else Console.WriteLine("Se ha producido un error");
 
-                        if (booleano = true) Console.WriteLine("La ficha se ha insertado correctamente");
-                        else Console.WriteLine("Se ha producido un error");
+                            Console.WriteLine(tablero.ToString());
+                            bool condicion1 = tablero.EsFinJuego();
+                            condicion2 = tablero.HayGanador(j2);
 
-                        Console.WriteLine(tablero.ToString());
-
+                        }
                     }
                 }
             }
@@ -72,38 +82,48 @@
             {
                 for (int turno = 0; turno < 81; turno++)
                 {
-                    if (turno % 2 == 0)
+
+                    bool condidion1 = false;
+                    bool condicion2 = false;
+
+                    if (condidion1 = false || condicion2 == false)
                     {
+                        if (turno % 2 == 0)
+                        {
 
-                        Console.WriteLine("Turno de " + j2.toString());
-                        Console.WriteLine("¿En que columna quiere insertar la ficha?");
+                            Console.WriteLine("Turno de " + j2.toString());
+                            Console.WriteLine("¿En que columna quiere insertar la ficha?");
 
-                        String c = Console.ReadLine();
-                        int columna = Int32.Parse(c);
-                        bool booleano = tablero.PonerFichaPosicion(j2.Ficha, columna);
+                            String c = Console.ReadLine();
+                            int columna = Int32.Parse(c);
+                            bool booleano = tablero.PonerFichaPosicion(j2.Ficha, columna);
 
-                        if (booleano = true) Console.WriteLine("La ficha se ha insertado correctamente");
-                        else Console.WriteLine("Se ha producido un error");
+                            if (booleano = true) Console.WriteLine("La ficha se ha insertado correctamente");
+                            else Console.WriteLine("Se ha producido un error");
 
-                        Console.WriteLine(tablero.ToString());
+                            Console.WriteLine(tablero.ToString());
+                            bool condicion1 = tablero.EsFinJuego();
+                            condicion2 = tablero.HayGanador(j2);
 
 
-                    }
-                    else if (!(turno % 2 == 0))
-                    {
+                        }
+                        else if (!(turno % 2 == 0))
+                        {
 
-                        Console.WriteLine("Turno de " + j1.toString());
-                        Console.WriteLine("¿En que columna quiere insertar la ficha?");
+                            Console.WriteLine("Turno de " + j1.toString());
+                            Console.WriteLine("¿En que columna quiere insertar la ficha?");
 
-                        String c = Console.ReadLine();
-                        int columna = Int32.Parse(c);
-                        bool booleano = tablero.PonerFichaPosicion(j1.Ficha, columna);
+                            String c = Console.ReadLine();
+                            int columna = Int32.Parse(c);
+                            bool booleano = tablero.PonerFichaPosicion(j1.Ficha, columna);
 
-                        if (booleano = true) Console.WriteLine("La ficha se ha insertado correctamente");
-                        else Console.WriteLine("Se ha producido un error");
+                            if (booleano = true) Console.WriteLine("La ficha se ha insertado correctamente");
+                            else Console.WriteLine("Se ha producido un error");
 
-                        Console.WriteLine(tablero.ToString());
-
+                            Console.WriteLine(tablero.ToString());
+                            bool condicion1 = tablero.EsFinJuego();
+                            condicion2 = tablero.HayGanador(j1);
+                        }
                     }
                 }
             }        
