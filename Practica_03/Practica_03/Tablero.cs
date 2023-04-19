@@ -68,6 +68,34 @@ namespace PSS.rih419.Practica_03
             return false;
         }
 
-        
+        public override String ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < 9; i++)
+            {
+
+                sb.Append("-------------------------------------------------------\n");
+
+                for (int j = 0; j < 9; j++)
+                {
+                    if (casilla[i, j] != null)
+                    {
+                        sb.Append("| ");
+                        sb.Append(casilla[i, j].Color.ToString());
+
+
+                    }
+                    else if (casilla[i, j] == null)
+                    {
+                        sb.Append("|");
+                        sb.Append("     ");
+                    }
+                }
+                sb.Append("|\n");
+            }
+            sb.Append("-------------------------------------------------------\n");
+            sb.Append("   0     1     2     3     4     5     6     7     8    ");
+            return sb.ToString();
+        }
     }
 }
