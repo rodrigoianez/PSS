@@ -3,7 +3,7 @@
     public  class Juego
     {
         public  int NumeroJugadores;
-        private static Dictionary<string,Jugador> listaJugadores = new Dictionary<string,Jugador>();
+        private  Dictionary<string,Jugador> listaJugadores = new Dictionary<string,Jugador>();
         
 
         public Juego()
@@ -22,7 +22,7 @@
             return listaJugadores[nombre];
         }
 
-        public static bool IndiceAleatorio()
+        public static  bool IndiceAleatorio()
         {
             Random random = new Random();
             
@@ -33,7 +33,7 @@
             else return false;
         }
 
-        public  static Jugador EmpiezaJugadorAleatorio(Jugador j1, Jugador j2)
+        public static   Jugador EmpiezaJugadorAleatorio(Jugador j1, Jugador j2)
         {
 
             bool booleano = IndiceAleatorio();

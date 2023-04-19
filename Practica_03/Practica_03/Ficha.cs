@@ -1,27 +1,46 @@
-﻿namespace PSS.rih419.Practica_03
+﻿using System.Drawing;
+
+namespace PSS.rih419.Practica_03
 {
     public class Ficha
     {
 
-        public ColorFicha _color;
+        public ColorFicha color;
 
-        public ColorFicha Color { get { return _color; } }
+        public ColorFicha Color { get { return color; } }
 
         public Ficha()
         {
+
         }
 
-        public Ficha(ColorFicha color)
+        public Ficha(ColorFicha color1)
         {
-            _color = color;
+            color = color1;
         }
 
-       
-    }
 
+        public string tostring()
+        {
+
+            string colorString;
+
+            if (this.Color == ColorFicha.Rojo)
+            {
+                colorString = "rojo";
+            }
+            else
+            {
+                colorString = "negro";
+            }
+
+            return colorString;
+        }
+    }
+   
     public enum ColorFicha
     {
-        Rojo, Negro, SinColor
+        Rojo, Negro
 
     }
 }

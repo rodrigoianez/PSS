@@ -20,13 +20,7 @@ namespace PSS.rih419.Practica_03
             Assert.IsTrue(booleano);
         }
 
-        [TestMethod]
-        public void Constructor_SinParametroColor_EsSinColor()
-        {
-            Ficha ficha = new Ficha(ColorFicha.SinColor);
-            bool booleano = ficha.Color == ColorFicha.SinColor;
-            Assert.IsTrue(booleano);
-        }
+        
 
     }
 
