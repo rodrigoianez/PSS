@@ -24,8 +24,9 @@ namespace PSS.rih419.Practica_03
         [TestMethod]
         public void Constructor_SinParametros_NombreEsNombreInstancia()
         {
-            Jugador.numJugadores = 0;
+            
             Jugador jugador = new Jugador();
+            jugador.numJugadores = 0;
             bool booleano = (jugador.Nombre == ("Jugador1"));
             Assert.IsTrue(booleano);
         }

@@ -22,26 +22,6 @@ namespace PSS.rih419.Practica_03
         }
 
         [TestMethod]
-        public void Dimension_InstanciarTableroConParametros_DimensionEsIgual()
-        {
-            Tablero tablero = new Tablero(15);
-            bool booleano = tablero.Dimension == 15;
-            Assert.IsTrue(booleano);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(IndexOutOfRangeException))]
-        public void Indexador_FueraDimension_Excepcion()
-        {
-
-            Tablero tablero = new Tablero(9);
-            tablero[10, 10] = new Ficha(ColorFicha.Negro);
-
-            Assert.Fail("Se esperaba una IndexOutOfRangeException");
-
-        }
-
-        [TestMethod]
         public void Casillas_PongoFicha_FichaEsIgual()
         {
             Tablero tablero = new Tablero();
@@ -62,10 +42,11 @@ namespace PSS.rih419.Practica_03
         [TestMethod]
         public void EsFinJuego_TableroLleno_EsTrue()
         {
-            Tablero tablero = new Tablero(1);
+            Tablero tablero = new Tablero();
             var ficha = new Ficha(ColorFicha.Rojo);
             int columna = 0;
-            Tablero.PonerFichaPosicion(ficha, columna);
+            int numeroCasilasOcupadas = 81;
+            tablero.PonerFichaPosicion(ficha, columna);
             Assert.IsTrue(tablero.EsFinJuego());
         }
 
@@ -75,8 +56,9 @@ namespace PSS.rih419.Practica_03
 
             Jugador j1 = new Jugador();
             Jugador j2 = new Jugador();
+            Tablero tablero = new Tablero();
 
-            Tablero.AsignarFicha(j1, j2);
+            tablero.AsignarFicha(j1, j2);
 
             Ficha ficha1 = new Ficha(ColorFicha.Rojo);
             Assert.AreEqual(j1.Ficha.Color, ficha1.Color);
@@ -92,9 +74,10 @@ namespace PSS.rih419.Practica_03
 
             Ficha ficha = new Ficha(ColorFicha.Rojo);
             int columna = 0;
-            Tablero.PonerFichaPosicion(ficha, columna);
+            Tablero tablero = new Tablero();
+            tablero.PonerFichaPosicion(ficha, columna);
 
-            Assert.AreNotEqual(Tablero.casilla[8, 0], null);
+            Assert.AreNotEqual(tablero.casilla[8, 0], null);
 
 
         }

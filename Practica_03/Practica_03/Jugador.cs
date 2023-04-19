@@ -3,19 +3,19 @@
     public  class Jugador
     {
 
-        public static int numJugadores = 0;
+        public int numJugadores = 0;
 
-        public  string Nombre { get; }
+        public string Nombre { get; }
 
-        public  Jugador()
+        public Jugador()
         {
             numJugadores++;
             Nombre = "Jugador" + numJugadores;
         }
 
-        public  Ficha _ficha;
+        public Ficha _ficha;
 
-        public  Ficha Ficha { 
+        public Ficha Ficha { 
             
             get { if (_ficha == null) throw new ArgumentException("El jugador tiene que tener ficha");
                 else return _ficha;

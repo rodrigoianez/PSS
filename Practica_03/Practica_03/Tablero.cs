@@ -1,26 +1,22 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
 
 namespace PSS.rih419.Practica_03
 {
     public class Tablero
     {
-        public static  Ficha[ , ] casilla;
-        
+        public Ficha[ , ] casilla=new Ficha[9,9];
+
+        int dimension = 9;
+        public int numeroCasillasOcupadas = 0;
 
         public Tablero() {
 
             casilla = new Ficha[9, 9];
 
         }
-        public Tablero(int dimension)
-        {
-            dimension =  dimension;
-            casilla = new Ficha[dimension, dimension];
-        }
-
-        int dimension = 9;
-        public int numeroCasillasOcupadas = 0;
-
+        
         public int Dimension { get { return dimension; } }
 
         public bool EsFinJuego()
@@ -40,7 +36,7 @@ namespace PSS.rih419.Practica_03
 
         }
 
-        public static void AsignarFicha(Jugador j1, Jugador j2)
+        public void AsignarFicha(Jugador j1, Jugador j2)
         {
 
             Ficha fichaJ1 = new Ficha(ColorFicha.Rojo);
@@ -51,16 +47,19 @@ namespace PSS.rih419.Practica_03
 
         }
 
-        public static bool PonerFichaPosicion(Ficha ficha, int columna)
+        public bool PonerFichaPosicion(Ficha ficha, int columna)
         {
+               
             if( columna >= 0 && columna < 9)
             {
                 for(int i = 8; i >= 0 ; i--)
                 {
-                    if (casilla[i, columna].Equals(null))
+                    if (casilla[i, columna] == null)
                     {
                         casilla[i, columna] = ficha;
                         return true;
+                        break;
+
                     }
                     else return false;     
                 }
@@ -68,5 +67,7 @@ namespace PSS.rih419.Practica_03
 
             return false;
         }
+
+        
     }
 }
