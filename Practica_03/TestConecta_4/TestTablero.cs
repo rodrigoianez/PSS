@@ -90,5 +90,17 @@ namespace PSS.rih419.Practica_03
 
             Assert.IsTrue(booleano);
         }
+
+        [TestMethod]
+        public void iaFacil_PoneFicha_EsIgual()
+        {
+            Tablero tablero = new Tablero();
+            Ficha ficha = new Ficha(ColorFicha.Rojo);
+            int columna = tablero.iaFacil();
+            tablero.PonerFichaPosicion(ficha, columna);
+
+            Assert.AreNotEqual(tablero.casilla[8, columna], null);
+
+        }
     }
 }

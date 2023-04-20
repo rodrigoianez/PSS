@@ -68,6 +68,16 @@ namespace PSS.rih419.Practica_03
             return false;
         }
 
+        public int iaFacil()
+        {
+
+            Random random = new Random();
+            int randNum = random.Next(0, 9);
+
+
+            return randNum;
+            
+        }
 
         public bool HayGanador(Jugador jugador)
         {
@@ -76,13 +86,7 @@ namespace PSS.rih419.Practica_03
             {
                 for (int columna = 0; columna < 6; columna++)
                 {
-                    if (casilla[fila, columna] != null &&
-                        casilla[fila, columna] == casilla[fila, columna + 1] &&
-                        casilla[fila, columna] == casilla[fila, columna + 2] &&
-                        casilla[fila, columna] == casilla[fila, columna + 3])
-                    {
-                        return true;
-                    }
+                    
                 }
             }
             return false;
