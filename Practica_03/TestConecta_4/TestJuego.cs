@@ -43,7 +43,7 @@ namespace PSS.rih419.Practica_03
             Jugador jugador1 = new Jugador("Jugador1");
             juego.AnadirJugador(jugador1);
             Jugador jugador2 = new Jugador("Jugador2");
-            Jugador jugadorDevuelto = Juego.EmpiezaJugadorAleatorio(jugador1,jugador2);
+            Jugador jugadorDevuelto = juego.EmpiezaJugadorAleatorio(jugador1,jugador2);
 
             if (jugador1 == jugadorDevuelto)
             {

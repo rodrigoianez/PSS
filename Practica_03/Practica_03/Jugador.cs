@@ -40,7 +40,7 @@
             Nombre = nombre;
         }
 
-        public String toString()
+        public String ToString()
         {
 
             return this.Nombre.ToString();

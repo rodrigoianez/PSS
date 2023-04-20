@@ -48,38 +48,32 @@
         public void DesarrolloTurno(Jugador j, Tablero tablero, int dificultad)
         {
 
-            Console.WriteLine("Turno de " + j.toString());
-
+            Console.WriteLine("Turno de " + j.ToString());
             int columna;
 
             if (dificultad == 2)
             {   
                 if(j.Nombre.ToString() == "Jugador IA")
                 {
-
                     columna = tablero.iaFacil();
-
                 } else
                 {
-
                     String c = Console.ReadLine();
                     columna = Int32.Parse(c);
-
                 }
-                 
-
             } else
             {
-
+                Console.WriteLine("Introduzca el numero de la columna donde quiera insertar la ficha");
                 String c = Console.ReadLine();
                 columna = Int32.Parse(c);
             }
-            
+
             bool booleano = tablero.PonerFichaPosicion(j.Ficha, columna);
 
-            if (booleano = true) Console.WriteLine("La ficha se ha insertado correctamente");
-            else Console.WriteLine("Se ha producido un error");
-
+            if (booleano = true)
+            {
+                Console.WriteLine("La ficha se ha insertado correctamente");
+            }
             Console.WriteLine(tablero.ToString());
         }
     }

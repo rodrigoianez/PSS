@@ -35,8 +35,8 @@ namespace PSS.rih419.Practica_03
         public void Ficha_ColorRojo_ColorFichaJugadorEsIgual()
         {
             Jugador jugador = new Jugador();
-            jugador.Ficha = new Ficha(ColorFicha.Rojo);
-            bool booleano = (jugador.Ficha.Color == ColorFicha.Rojo);
+            jugador.Ficha = new Ficha(ColorFicha.Morado);
+            bool booleano = (jugador.Ficha.Color == ColorFicha.Morado);
             Assert.IsTrue(booleano);
         }
 
@@ -44,9 +44,8 @@ namespace PSS.rih419.Practica_03
         [ExpectedException(typeof(ArgumentException))]
         public void Ficha_No_Asignada_Excepcion()
         {
-
             Jugador jugador = new Jugador();
-            bool boleano = (jugador.Ficha.Color == ColorFicha.Rojo);
+            bool boleano = (jugador.Ficha.Color == ColorFicha.Morado);
             Assert.Fail("Se esperaba una ArgumentException");
 
         }

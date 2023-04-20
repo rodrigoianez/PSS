@@ -27,11 +27,11 @@ namespace PSS.rih419.Practica_03
 
             if (this.Color == ColorFicha.Morado)
             {
-                colorString = "rojo";
+                colorString = "morado";
             }
             else
             {
-                colorString = "negro";
+                colorString = "verde";
             }
 
             return colorString;
