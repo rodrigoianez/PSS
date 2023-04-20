@@ -25,7 +25,7 @@ namespace PSS.rih419.Practica_03
         public void Casillas_PongoFicha_FichaEsIgual()
         {
             Tablero tablero = new Tablero();
-            var ficha = new Ficha(ColorFicha.Negro);
+            var ficha = new Ficha(ColorFicha.Verde);
             tablero[5, 5] = ficha;
             bool booleano = tablero[5, 5].Color == ficha.Color;
             Assert.IsTrue(booleano);
@@ -59,10 +59,10 @@ namespace PSS.rih419.Practica_03
 
             tablero.AsignarFicha(j1, j2);
 
-            Ficha ficha1 = new Ficha(ColorFicha.Rojo);
+            Ficha ficha1 = new Ficha(ColorFicha.Morado);
             Assert.AreEqual(j1.Ficha.Color, ficha1.Color);
 
-            Ficha ficha2 = new Ficha(ColorFicha.Negro);
+            Ficha ficha2 = new Ficha(ColorFicha.Verde);
             Assert.AreEqual(j2.Ficha.Color, ficha2.Color);
 
         }
@@ -70,7 +70,7 @@ namespace PSS.rih419.Practica_03
         [TestMethod]
         public void PonerfichaPosicion_PongoFicha_EsIgual()
         {
-            Ficha ficha = new Ficha(ColorFicha.Rojo);
+            Ficha ficha = new Ficha(ColorFicha.Morado);
             int columna = 0;
             Tablero tablero = new Tablero();
             tablero.PonerFichaPosicion(ficha, columna);
@@ -82,11 +82,11 @@ namespace PSS.rih419.Practica_03
         public void HayGanador_HayUnGanador_EsTrue()
         {
             
-            Ficha ficha = new Ficha(ColorFicha.Rojo);
+            Ficha ficha = new Ficha(ColorFicha.Morado);
             int columna = 0;
             Tablero tablero = new Tablero();
             Jugador jugador = new Jugador();
-            bool booleano = tablero.HayGanador(jugador);
+            bool booleano = tablero.HayGanador(tablero);
 
             Assert.IsTrue(booleano);
         }
@@ -95,7 +95,7 @@ namespace PSS.rih419.Practica_03
         public void iaFacil_PoneFicha_EsIgual()
         {
             Tablero tablero = new Tablero();
-            Ficha ficha = new Ficha(ColorFicha.Rojo);
+            Ficha ficha = new Ficha(ColorFicha.Morado);
             int columna = tablero.iaFacil();
             tablero.PonerFichaPosicion(ficha, columna);
 

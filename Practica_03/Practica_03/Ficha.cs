@@ -25,7 +25,7 @@ namespace PSS.rih419.Practica_03
 
             string colorString;
 
-            if (this.Color == ColorFicha.Rojo)
+            if (this.Color == ColorFicha.Morado)
             {
                 colorString = "rojo";
             }
@@ -40,7 +40,7 @@ namespace PSS.rih419.Practica_03
    
     public enum ColorFicha
     {
-        Rojo, Negro
+        Morado, Verde
 
     }
 }

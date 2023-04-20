@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Drawing;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
@@ -39,8 +40,8 @@ namespace PSS.rih419.Practica_03
         public void AsignarFicha(Jugador j1, Jugador j2)
         {
 
-            Ficha fichaJ1 = new Ficha(ColorFicha.Rojo);
-            Ficha fichaJ2 = new Ficha(ColorFicha.Negro);
+            Ficha fichaJ1 = new Ficha(ColorFicha.Morado);
+            Ficha fichaJ2 = new Ficha(ColorFicha.Verde);
 
             j1.Ficha = fichaJ1;
             j2.Ficha = fichaJ2;
@@ -49,7 +50,6 @@ namespace PSS.rih419.Practica_03
 
         public bool PonerFichaPosicion(Ficha ficha, int columna)
         {
-               
             if( columna >= 0 && columna < 9)
             {
                 for(int i = 8; i >= 0 ; i--)
@@ -64,8 +64,13 @@ namespace PSS.rih419.Practica_03
                     }
                     else  continue;
                 }
+                
+            }else
+            {
+                return false;
             }
             return false;
+            
         }
 
         public int iaFacil()
@@ -73,66 +78,93 @@ namespace PSS.rih419.Practica_03
 
             Random random = new Random();
             int randNum = random.Next(0, 9);
-
-
             return randNum;
             
         }
 
-        public bool HayGanador(Jugador jugador)
+        public bool HayGanador(Tablero tablero)
         {
-            
-            for (int fila = 0; fila < 9; fila++)
+
+            int contador;
+
+            for (int i = 0; i < 9; i++)
             {
-                for (int columna = 0; columna < 6; columna++)
+                for (int j = 0; j < 9; j++)
+                {
+                    
+                }
+                contador = 0;
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    
+                }
+                contador = 0;
+            }
+
+            for (int i = 3; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    
+                }
+            }
+            
+            for (int i = 0; i < 9 - 3; i++)
+            { 
+                for (int j = 0; j < 9 - 3; j++)
                 {
                     
                 }
             }
             return false;
-
         }
 
-        public override String ToString()
+        public  string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < 9; i++)
-            {
+            StringBuilder matriz = new StringBuilder();
 
-                sb.Append("-------------------------------------------------------\n");
+            for (int i = 0; i < 9; i++)
+            {                  
+                matriz.Append("+------+------+------+------+------+------+------+------+------+\n");
+
+
+                float[] dashValues = { 5, 2, 15, 4 };
+                
 
                 for (int j = 0; j < 9; j++)
                 {
                     if (casilla[i, j] != null)
                     {
-
-                        Ficha ficha1 = new Ficha(ColorFicha.Rojo);
-                        Ficha ficha2 = new Ficha(ColorFicha.Negro);
+                        Ficha ficha1 = new Ficha(ColorFicha.Morado);
+                        Ficha ficha2 = new Ficha(ColorFicha.Verde);
 
                         if (casilla[i, j].Color.ToString() == ficha1.Color.ToString())
                         {
-                            sb.Append("| ");
-                            sb.Append(casilla[i, j].Color.ToString());
+                            matriz.Append("|");
+                            matriz.Append("\u001b[32m" + casilla[i, j].Color.ToString()+ "\u001b[0m");
                         } 
                         else if (casilla[i, j].Color.ToString() == ficha2.Color.ToString())
                         {
-                            sb.Append("|");
-                            sb.Append(casilla[i, j].Color.ToString());
+                            matriz.Append("| ");
+                            matriz.Append("\u001b[35m"+casilla[i, j].Color.ToString()+ "\u001b[0m");
                         }
-
-
                     }
                     else if (casilla[i, j] == null)
                     {
-                        sb.Append("|");
-                        sb.Append("     ");
+                        matriz.Append("|");
+                        matriz.Append("      ");
                     }
                 }
-                sb.Append("|\n");
+                matriz.Append("|\n");
             }
-            sb.Append("-------------------------------------------------------\n");
-            sb.Append("   0     1     2     3     4     5     6     7     8    ");
-            return sb.ToString();
+            matriz.Append("+------+------+------+------+------+------+------+------+------+\n");
+            matriz.Append("|   0  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |");
+            
+            return matriz.ToString();
         }
     }
 }
