@@ -37,7 +37,7 @@ namespace PSS.rih419.Practica_03
             return colorString;
         }
     }
-   
+
     public enum ColorFicha
     {
         Morado, Verde

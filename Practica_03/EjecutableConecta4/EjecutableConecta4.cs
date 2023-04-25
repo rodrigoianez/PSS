@@ -1,190 +1,45 @@
-﻿namespace PSS.rih419.Practica_03
-{
-    public  class EjecutableConecta4
-    {
+﻿using System.Drawing;
+using System.Reflection.Emit;
+using System.Reflection.Metadata.Ecma335;
 
+namespace PSS.rih419.Practica_03
+{
+    public class EjecutableConecta4
+    {
         public static void Main(String[] args)
         {
+            Juego juego = new Juego();
+            juego.Encabezado();
 
-            Console.WriteLine("Que comience la partida");
+            int dificultad;
+            while (true)
+            {
+                String dificultadEntrada = Console.ReadLine();
+                if (dificultadEntrada == "1" || dificultadEntrada == "2")
+                {
+                    dificultad = Int32.Parse(dificultadEntrada);
+                    break;
 
-            Console.WriteLine("Elija la dificultad");
-            Console.WriteLine("Pulse 1 para Jugador vs Jugador");
-            Console.WriteLine("Pulse 2 para Jugador vs IA");
+                }
 
-            String dificultadEntrada = Console.ReadLine();
-            int dificultad = Int32.Parse(dificultadEntrada);
+                Console.WriteLine("Dificultad no valida, por favor vuelva a intentarlo:");
+            }
+            
+
+            bool booleano1 = false;
+            bool booleano2 = false;
+            Jugador jugadorGanador = new Jugador();
 
             if (dificultad == 1)
             {
-                Console.WriteLine("Introduzca el nombre del primer jugador");
-
-                String nombreJugador1 = Console.ReadLine();
-
-                Console.WriteLine("Introduzca el nombre del segundo jugador");
-
-                String nombreJugador2 = Console.ReadLine();
-
-                Jugador j1 = new Jugador(nombreJugador1);
-                Jugador j2 = new Jugador(nombreJugador2);
-
-                Tablero tablero = new Tablero();
-
-                tablero.AsignarFicha(j1, j2);
-
-                Console.WriteLine("La ficha de " + nombreJugador1 + " es " + j1.Ficha.Color);
-                Console.WriteLine("La ficha de " + nombreJugador2 + " es " + j2.Ficha.Color);
-
-                Juego juego = new Juego();
-
-                Jugador jugadorTurno = juego.EmpiezaJugadorAleatorio(j1, j2);
-
-
-                if (jugadorTurno == j1)
-                {
-                    for (int turno = 0; turno < 81; turno++)
-                    {
-                        bool condidion1 = false;
-                        bool condicion2 = false;
-
-                        if (condidion1 = false || condicion2 == false)
-                        {
-                            if (turno % 2 == 0)
-                            {
-                                juego.DesarrolloTurno(j1, tablero, dificultad);
-                                bool condicion1 = tablero.EsFinJuego();
-                                condicion2 = tablero.HayGanador(j1);
-
-
-                            }
-                            else if (!(turno % 2 == 0))
-                            {
-
-                                juego.DesarrolloTurno(j2, tablero, dificultad);
-                                bool condicion1 = tablero.EsFinJuego();
-                                condicion2 = tablero.HayGanador(j2);
-
-                            }
-                        }
-                    }
-                }
-                else if (jugadorTurno == j2)
-                {
-                    for (int turno = 0; turno < 81; turno++)
-                    {
-
-                        bool condidion1 = false;
-                        bool condicion2 = false;
-
-                        if (condidion1 = false || condicion2 == false)
-                        {
-                            if (turno % 2 == 0)
-                            {
-
-                                juego.DesarrolloTurno(j2, tablero, dificultad);
-                                bool condicion1 = tablero.EsFinJuego();
-                                condicion2 = tablero.HayGanador(j2);
-
-
-                            }
-                            else if (!(turno % 2 == 0))
-                            {
-
-                                juego.DesarrolloTurno(j1, tablero, dificultad);
-                                bool condicion1 = tablero.EsFinJuego();
-                                condicion2 = tablero.HayGanador(j1);
-                            }
-                        }
-                    }
-                }
-
+                juego.Dificultad1(juego, 1);
+            }
+            else if (dificultad == 2)
+            {
+                juego.Ddificultad2(juego, 2);
 
             }
-            else if(dificultad == 2)
-            {
-
-
-                Console.WriteLine("Introduzca su nombre");
-
-                String nombreJugador = Console.ReadLine();
-                String nombreJugadorIA = "Jugador IA";
-
-                Jugador j = new Jugador(nombreJugador);
-                Jugador jIA = new Jugador(nombreJugadorIA);
-
-                Tablero tablero = new Tablero();
-
-                tablero.AsignarFicha(j, jIA);
-
-                Console.WriteLine("La ficha de " + nombreJugador + " es " + j.Ficha.Color);
-                Console.WriteLine("La ficha de " + nombreJugadorIA + " es " + jIA.Ficha.Color);
-
-                Juego juego = new Juego();
-
-                Jugador jugadorTurno = juego.EmpiezaJugadorAleatorio(j, jIA);
-
-                if (jugadorTurno == j)
-                {
-                    for (int turno = 0; turno < 81; turno++)
-                    {
-                        bool condidion1 = false;
-                        bool condicion2 = false;
-
-                        if (condidion1 = false || condicion2 == false)
-                        {
-                            if (turno % 2 == 0)
-                            {
-
-                                juego.DesarrolloTurno(j, tablero, dificultad);
-                                bool condicion1 = tablero.EsFinJuego();
-                                condicion2 = tablero.HayGanador(j);
-
-
-                            }
-                            else if (!(turno % 2 == 0))
-                            {
-
-                                juego.DesarrolloTurno(jIA, tablero, dificultad);
-                                bool condicion1 = tablero.EsFinJuego();
-                                condicion2 = tablero.HayGanador(jIA);
-
-                            }
-                        }
-                    }
-                }
-                else if (jugadorTurno == jIA)
-                {
-                    for (int turno = 0; turno < 81; turno++)
-                    {
-
-                        bool condidion1 = false;
-                        bool condicion2 = false;
-
-                        if (condidion1 = false || condicion2 == false)
-                        {
-                            if (turno % 2 == 0)
-                            {
-
-                                juego.DesarrolloTurno(jIA, tablero, dificultad);
-                                bool condicion1 = tablero.EsFinJuego();
-                                condicion2 = tablero.HayGanador(jIA);
-
-
-                            }
-                            else if (!(turno % 2 == 0))
-                            {
-
-                                juego.DesarrolloTurno(j, tablero, dificultad);
-                                bool condicion1 = tablero.EsFinJuego();
-                                condicion2 = tablero.HayGanador(j);
-                            }
-                        }
-                    }
-                }
-            }            
         }
     }
 }
-
-
 

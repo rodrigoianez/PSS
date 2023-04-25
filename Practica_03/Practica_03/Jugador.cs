@@ -1,6 +1,6 @@
 ﻿namespace PSS.rih419.Practica_03
 {
-    public  class Jugador
+    public class Jugador
     {
 
         public int numJugadores = 0;
@@ -15,16 +15,21 @@
 
         public Ficha _ficha;
 
-        public Ficha Ficha { 
-            
-            get { if (_ficha == null) throw new ArgumentException("El jugador tiene que tener ficha");
+        public Ficha Ficha
+        {
+
+            get
+            {
+                if (_ficha == null) throw new ArgumentException("El jugador tiene que tener ficha");
                 else return _ficha;
             }
 
-            set { _ficha = value;
+            set
+            {
+                _ficha = value;
             }
 
-        }    
+        }
 
         public Jugador(Ficha fichaJugador)
         {
