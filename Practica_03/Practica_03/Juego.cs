@@ -272,7 +272,8 @@ namespace PSS.rih419.Practica_03
             Console.WriteLine("Elija la dificultad");
             Console.WriteLine("");
             Console.WriteLine("Pulse 1 para Jugador vs Jugador");
-            Console.WriteLine("Pulse 2 para Jugador vs IA");
+            Console.WriteLine("Pulse 2 para Jugador vs IA facil");
+            Console.WriteLine("Pulse 3 para Jugador vs IA media");
 
         }
 
@@ -281,7 +282,8 @@ namespace PSS.rih419.Practica_03
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("Turno de " + j.ToString());
-            int columna;
+            int columna = 0
+                ;
 
             if (dificultad == 2)
             {
@@ -293,11 +295,20 @@ namespace PSS.rih419.Practica_03
                 {
                     Console.WriteLine();
                     Console.WriteLine("Introduzca el numero de la columna donde quiera insertar la ficha");
-                    String c = Console.ReadLine();
-                    columna = Int32.Parse(c) - 1;
+                    while (true)
+                    {
+                        String c = Console.ReadLine();
+                        if (c == "1" || c == "2" || c == "3" || c == "4" || c == "5" || c == "6" || c == "7" || c == "8" || c == "9")
+                        {
+                            columna = Int32.Parse(c) - 1;
+                            break;
+                        }
+
+                        Console.WriteLine("Columna no valida, por favor vuelva a intentarlo:");
+                    }
                 }
             }
-            else
+            else if (dificultad == 1)
             {
                 Console.WriteLine();
                 Console.WriteLine("Introduzca el numero de la columna donde quiera insertar la ficha");
@@ -306,17 +317,37 @@ namespace PSS.rih419.Practica_03
                     String c = Console.ReadLine();
                     if ( c == "1" || c == "2" || c == "3" || c == "4" || c == "5" || c == "6" || c == "7" || c == "8"|| c == "9")
                     {
-
                         columna = Int32.Parse(c) - 1;
                         break;
-
                     }
 
                     Console.WriteLine("Columna no valida, por favor vuelva a intentarlo:");
                 }
 
-            }
+            } else if (dificultad == 3)
+            {
+                if (j.Nombre.ToString() == "Jugador IA")
+                {
+                    columna = tablero.iaMedia(tablero, j);
+                }
+                else
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Introduzca el numero de la columna donde quiera insertar la ficha");
+                    while (true)
+                    {
+                        String c = Console.ReadLine();
+                        if (c == "1" || c == "2" || c == "3" || c == "4" || c == "5" || c == "6" || c == "7" || c == "8" || c == "9")
+                        {
+                            columna = Int32.Parse(c) - 1;
+                            break;
+                        }
 
+                        Console.WriteLine("Columna no valida, por favor vuelva a intentarlo:");
+                    }
+                }
+            }
+            
             bool booleano = tablero.PonerFichaPosicion(j.Ficha, columna);
 
             if (booleano = true)
@@ -446,7 +477,7 @@ namespace PSS.rih419.Practica_03
             }
         }
 
-        public void Ddificultad2(Juego juego, int dificultad)
+        public void DificultadIA(Juego juego, int dificultad)
         {
 
             Console.WriteLine("Introduzca su nombre");

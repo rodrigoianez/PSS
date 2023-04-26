@@ -20,6 +20,19 @@ namespace PSS.rih419.Practica_03
             casilla = new Ficha[9, 9];
         }
 
+        public Tablero(Tablero tablero)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    casilla[i, j] = tablero.casilla[i, j];
+                }
+            }
+
+
+        }
+
         public int Dimension { get { return dimension; } }
 
         public bool EsFinJuego()
@@ -67,14 +80,12 @@ namespace PSS.rih419.Practica_03
                     }
                     else continue;
                 }
-
             }
             else
             {
                 return false;
             }
             return false;
-
         }
 
         public int iaFacil()
@@ -84,22 +95,64 @@ namespace PSS.rih419.Practica_03
             return randNum;
         }
 
-        public int iaDificil()
+        public int iaMedia(Tablero tablero, Jugador jugadorIA)
         {
-            int mejor_mov = -1;
-            double max, max_actual;
-            max = double.NegativeInfinity;
+            Tablero tableroCopia = new Tablero(tablero);
+            Juego juego = new Juego();
 
-            for (int j = 0; j < 9; j++)
+            Jugador jugador = new Jugador();
+            Ficha ficha = new Ficha();
+            jugador.Ficha = ficha;
+
+            bool booleano = false;
+            int columna = -1;
+
+            while (booleano == false)
             {
+                for (int i = 8; -1 < i; i--)
+                {
+                    if(PonerFichaPosicion(jugadorIA.Ficha, i) == true)
+                    {
+                        booleano = true;
+                        if (booleano)
+                        {
+                            tableroCopia = tablero;
+                            columna = i;
+                            break;
+                        }
+                    }
 
-
+                    for (int j = 8; -1 < j; j--)
+                    {
+                        if (PonerFichaPosicion(jugador.Ficha, j) == true)
+                        {
+                            booleano = juego.HayGanador(tableroCopia, jugador.Ficha);
+                            if (booleano)
+                            {
+                                tableroCopia = tablero;
+                                columna = j;
+                                break;
+                            }
+                        }
+                    }
+                }
+                break;
             }
-
-            return 1; ;
-        }
+            if (columna != -1)
+            {
+                return columna;
+            }
+            else 
+            {
+                Random random = new Random();
+                columna = random.Next(0, 9);
+                tableroCopia = tablero;
+                return columna;
+            }
+          }
 
         public string ToString()
+
         {
             StringBuilder matriz = new StringBuilder();
 

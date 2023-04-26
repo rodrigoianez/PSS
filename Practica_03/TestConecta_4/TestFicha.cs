@@ -15,8 +15,8 @@ namespace PSS.rih419.Practica_03
         [TestMethod]
         public void Constructor_ParametroColor_EsIgual() 
         {
-            Ficha ficha = new Ficha(ColorFicha.Rojo);
-            bool booleano = ficha.Color == ColorFicha.Rojo;
+            Ficha ficha = new Ficha(ColorFicha.Verde);
+            bool booleano = ficha.Color == ColorFicha.Verde;
             Assert.IsTrue(booleano);
         }
 

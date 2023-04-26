@@ -15,17 +15,14 @@ namespace PSS.rih419.Practica_03
             while (true)
             {
                 String dificultadEntrada = Console.ReadLine();
-                if (dificultadEntrada == "1" || dificultadEntrada == "2")
+                if (dificultadEntrada == "1" || dificultadEntrada == "2" || dificultadEntrada == "3")
                 {
                     dificultad = Int32.Parse(dificultadEntrada);
                     break;
-
                 }
-
                 Console.WriteLine("Dificultad no valida, por favor vuelva a intentarlo:");
             }
             
-
             bool booleano1 = false;
             bool booleano2 = false;
             Jugador jugadorGanador = new Jugador();
@@ -36,8 +33,11 @@ namespace PSS.rih419.Practica_03
             }
             else if (dificultad == 2)
             {
-                juego.Ddificultad2(juego, 2);
-
+                juego.DificultadIA(juego, 2);
+            } 
+            else if (dificultad == 3)
+            {
+                juego.DificultadIA(juego, 3);
             }
         }
     }

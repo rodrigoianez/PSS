@@ -81,12 +81,12 @@ namespace PSS.rih419.Practica_03
         [TestMethod]
         public void HayGanador_HayUnGanador_EsTrue()
         {
-            
+            Juego juego = new Juego();
             Ficha ficha = new Ficha(ColorFicha.Morado);
             int columna = 0;
             Tablero tablero = new Tablero();
             Jugador jugador = new Jugador();
-            bool booleano = tablero.HayGanador(tablero);
+            bool booleano = juego.HayGanador(tablero, ficha);
 
             Assert.IsTrue(booleano);
         }
