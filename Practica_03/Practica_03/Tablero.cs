@@ -135,11 +135,44 @@ namespace PSS.rih419.Practica_03
 
             bool booleano = false;
             int columna = -1;
+            int columnaNo;
+            int i = -1;
 
             while (booleano == false)
             {
-                for (int i = 8; -1 < i; i--)
+                for (i = 8; -1 < i; i--)
                 {
+
+                    bool condicion = PonerFichaPosicion(jugadorIA.Ficha, i, tableroCopia);
+
+                    if (condicion == true)
+                    {
+                        booleano = juego.HayGanador(tableroCopia, jugadorIA.Ficha);
+                        if (booleano)
+                        {
+                            tableroCopia = tablero;
+                            columna = i;
+                            break;
+                        } else
+                        {
+                            bool condicion2 = PonerFichaPosicion(jugador2.Ficha, i, tableroCopia2);
+
+                            if (condicion2 == true)
+                            {
+                                booleano = juego.HayGanador(tableroCopia2, jugador2.Ficha);
+                                if (booleano)
+                                {
+                                    tableroCopia2 = tablero;
+                                    columnaNo = i;
+                                }
+                                tableroCopia2 = Tablero.clonar(tablero);
+                                tableroCopia2.numeroCasillasOcupadas = numerocasillasocupadas;
+                            }
+                        }
+                    }
+                    tableroCopia = Tablero.clonar(tablero);
+                    tableroCopia.numeroCasillasOcupadas = numerocasillasocupadas;
+
                     bool condicion1 = PonerFichaPosicion(jugador2.Ficha, i, tableroCopia2);
 
                     if (condicion1 == true)
@@ -155,31 +188,6 @@ namespace PSS.rih419.Practica_03
                         tableroCopia2.numeroCasillasOcupadas = numerocasillasocupadas;
                     }
                 }
-                if (booleano == true)
-                {
-                    break;
-                }
-
-                for (int i = 8; -1 < i; i--)
-                {
-
-                    bool condicion = PonerFichaPosicion(jugadorIA.Ficha, i, tableroCopia);
-
-                    if (condicion == true)
-                    {
-                        booleano = juego.HayGanador(tableroCopia, jugadorIA.Ficha);
-                        if (booleano)
-                        {
-                            tableroCopia = tablero;
-                            columna = i;
-                            break;
-                        }
-                    }
-                    tableroCopia = Tablero.clonar(tablero);
-                    tableroCopia.numeroCasillasOcupadas = numerocasillasocupadas;
-                   
-                }
-                
                 break;
             }
             if (columna != -1)
@@ -188,11 +196,14 @@ namespace PSS.rih419.Practica_03
             }
             else 
             {
-                Random random = new Random();
-                columna = random.Next(0, 9);
-                tableroCopia = tablero;
+                int[] conjunto = { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+                int numeroNoElegible = i;
+
+                int[] arreglo = Array.FindAll(conjunto, x => x != i);
+                columna = arreglo[new Random().Next(arreglo.Length)];
                 return columna;
             }
+            
           }
 
         public string ToString()

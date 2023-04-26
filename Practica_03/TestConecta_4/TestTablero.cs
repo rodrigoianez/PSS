@@ -130,6 +130,32 @@ namespace PSS.rih419.Practica_03
 
             Assert.IsTrue(booleano);
         }
+
+        [TestMethod]
+        public void HayGanador_HayUnGanadorDiagonal_EsTrue()
+        {
+            Juego juego = new Juego();
+            Ficha ficha1 = new Ficha(ColorFicha.Morado);
+            Ficha ficha2 = new Ficha(ColorFicha.Verde);
+            int columna = 0;
+            Tablero tablero = new Tablero();
+            Jugador jugador1 = new Jugador(ficha1);
+            Jugador jugador2 = new Jugador(ficha2);
+            tablero.PonerFichaPosicion(jugador1.Ficha, 0, tablero);
+            tablero.PonerFichaPosicion(jugador2.Ficha, 1, tablero);
+            tablero.PonerFichaPosicion(jugador1.Ficha, 1, tablero);
+            tablero.PonerFichaPosicion(jugador2.Ficha, 2, tablero);
+            tablero.PonerFichaPosicion(jugador1.Ficha, 2, tablero);
+            tablero.PonerFichaPosicion(jugador2.Ficha, 3, tablero);
+            tablero.PonerFichaPosicion(jugador1.Ficha, 2, tablero);
+            tablero.PonerFichaPosicion(jugador2.Ficha, 3, tablero);
+            tablero.PonerFichaPosicion(jugador1.Ficha, 3, tablero);
+            tablero.PonerFichaPosicion(jugador2.Ficha, 4, tablero);
+            tablero.PonerFichaPosicion(jugador1.Ficha, 3, tablero);
+            bool booleano = juego.HayGanador(tablero, ficha1);
+
+            Assert.IsTrue(booleano);
+        }
         [TestMethod]
         public void iaFacil_PoneFicha_EsIgual()
         {
@@ -187,6 +213,29 @@ namespace PSS.rih419.Practica_03
             tablero.PonerFichaPosicion(jugadorIA.Ficha, columna, tablero);
             tablero.PonerFichaPosicion(jugador1.Ficha, 8, tablero);
             bool booleano = juego.HayGanador(tablero, fichaIA);
+
+            Assert.IsFalse(booleano);
+        }
+
+        [TestMethod]
+        public void HayGanador_VerticalFichasEntrelazadas_EsFalse()
+        {
+            Juego juego = new Juego();
+            Ficha ficha1 = new Ficha(ColorFicha.Morado);
+            Ficha ficha2 = new Ficha(ColorFicha.Verde);
+            Tablero tablero = new Tablero();
+            Jugador jugador1 = new Jugador();
+            Jugador jugador2 = new Jugador();
+            jugador1.Ficha = ficha1;
+            jugador2.Ficha = ficha2;
+            tablero.PonerFichaPosicion(jugador2.Ficha, 8, tablero);
+            tablero.PonerFichaPosicion(jugador1.Ficha, 8, tablero);
+            tablero.PonerFichaPosicion(jugador2.Ficha, 8, tablero);
+            tablero.PonerFichaPosicion(jugador1.Ficha, 8, tablero);
+            tablero.PonerFichaPosicion(jugador2.Ficha, 8, tablero);
+            tablero.PonerFichaPosicion(jugador1.Ficha, 8, tablero);
+            tablero.PonerFichaPosicion(jugador2.Ficha, 8, tablero);
+            bool booleano = juego.HayGanador(tablero, ficha2);
 
             Assert.IsFalse(booleano);
         }

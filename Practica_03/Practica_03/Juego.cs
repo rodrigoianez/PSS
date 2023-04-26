@@ -55,7 +55,11 @@ namespace PSS.rih419.Practica_03
                 contador = 0;
                 for (j = 0; j < 9; j++)
                 {
-                    if (tablero.casilla[i, j] == ficha)
+                    if (tablero.casilla[i, j] == null)
+                    {
+                        contador = 0;
+                    }
+                    else if (tablero.casilla[i, j].Color.ToString() == ficha.Color.ToString())
                     {
                         contador++;
                         if (contador == 4)
@@ -64,6 +68,7 @@ namespace PSS.rih419.Practica_03
                     else
                         contador = 0;
                 }
+                contador = 0;
             }
 
             for (j = 0; j < 9; j++)         //Busqueda vertical
@@ -81,7 +86,9 @@ namespace PSS.rih419.Practica_03
                         contador++;
                         if (contador == 4)
                             return true;
-                    }  
+                    }
+                    else
+                        contador = 0;
                 }
                 contador = 0;
             }
@@ -95,7 +102,12 @@ namespace PSS.rih419.Practica_03
 
                 while (v < 9 && m < 9)
                 {
-                    if (tablero[v, m] == ficha)
+                    if (tablero.casilla[v, m] == null)
+                    {
+                        contador = 0;
+
+                    }
+                    else if (tablero[v, m].Color.ToString() == ficha.Color.ToString())
                     {
                         contador++;
                         if (contador == 4)
@@ -115,7 +127,12 @@ namespace PSS.rih419.Practica_03
                 int v = i, m = j;
                 while (v < 9 && m < 9)
                 {
-                    if (tablero[v, m] == ficha)
+                    if (tablero.casilla[v, m] == null)
+                    {
+                        contador = 0;
+
+                    }
+                    else if (tablero[v, m].Color.ToString() == ficha.Color.ToString())
                     {
                         cont++;
                         if (cont == 4)
@@ -135,7 +152,12 @@ namespace PSS.rih419.Practica_03
                 int v = i, m = j;
                 while (v < 9 && m >= 0)
                 {
-                    if (tablero[v, m] == ficha)
+                    if (tablero.casilla[v, m] == null)
+                    {
+                        contador = 0;
+
+                    }
+                    else if (tablero[v, m].Color.ToString() == ficha.Color.ToString())
                     {
                         contador++;
                         if (contador == 4)
@@ -155,7 +177,12 @@ namespace PSS.rih419.Practica_03
                 int v = i, m = j;
                 while (v < 9 && m >= 0)
                 {
-                    if (tablero[v, m] == ficha)
+                    if (tablero.casilla[v, m] == null)
+                    {
+                        contador = 0;
+
+                    }
+                    else if (tablero[v, m].Color.ToString() == ficha.Color.ToString())
                     {
                         contador++;
                         if (contador == 4)
