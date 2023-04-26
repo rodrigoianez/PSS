@@ -205,6 +205,15 @@ namespace PSS.rih419.Practica_03 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Press 4 to IA easy vs IA difficult.
+        /// </summary>
+        internal static string Encabezado_5 {
+            get {
+                return ResourceManager.GetString("Encabezado 5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Let start the game.
         /// </summary>
         internal static string Encabezado1 {
@@ -223,7 +232,7 @@ namespace PSS.rih419.Practica_03 {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Press 2 to Player vs IA level easy.
+        ///   Busca una cadena traducida similar a Press 2 to Player vs IA easy.
         /// </summary>
         internal static string Encabezado3 {
             get {
@@ -232,7 +241,7 @@ namespace PSS.rih419.Practica_03 {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Press 3 to Player vs IA level medium.
+        ///   Busca una cadena traducida similar a Press 3 to Player vs IA difficult.
         /// </summary>
         internal static string Encabezado4 {
             get {

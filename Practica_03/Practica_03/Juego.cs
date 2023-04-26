@@ -45,7 +45,7 @@ namespace PSS.rih419.Practica_03
             else return j2;
         }
 
-        public bool HayGanador(Tablero tablero, Ficha ficha)
+        public bool HayGanador(Tablero tablero, Ficha ficha, int numContador)
         {
             int contador = 0;
             int i, j;
@@ -62,7 +62,7 @@ namespace PSS.rih419.Practica_03
                     else if (tablero.casilla[i, j].Color.ToString() == ficha.Color.ToString())
                     {
                         contador++;
-                        if (contador == 4)
+                        if (contador == numContador)
                             return true;
                     }
                     else
@@ -84,7 +84,7 @@ namespace PSS.rih419.Practica_03
                     else if (tablero.casilla[i, j].Color.ToString() == ficha.Color.ToString())
                     {
                         contador++;
-                        if (contador == 4)
+                        if (contador == numContador)
                             return true;
                     }
                     else
@@ -110,7 +110,7 @@ namespace PSS.rih419.Practica_03
                     else if (tablero[v, m].Color.ToString() == ficha.Color.ToString())
                     {
                         contador++;
-                        if (contador == 4)
+                        if (contador == numContador)
                             return true;
                     }
                     else
@@ -135,7 +135,7 @@ namespace PSS.rih419.Practica_03
                     else if (tablero[v, m].Color.ToString() == ficha.Color.ToString())
                     {
                         cont++;
-                        if (cont == 4)
+                        if (cont == numContador)
                             return true;
                     }
                     else
@@ -160,7 +160,7 @@ namespace PSS.rih419.Practica_03
                     else if (tablero[v, m].Color.ToString() == ficha.Color.ToString())
                     {
                         contador++;
-                        if (contador == 4)
+                        if (contador == numContador)
                             return true;
                     }
                     else
@@ -185,7 +185,7 @@ namespace PSS.rih419.Practica_03
                     else if (tablero[v, m].Color.ToString() == ficha.Color.ToString())
                     {
                         contador++;
-                        if (contador == 4)
+                        if (contador == numContador)
                             return true;
                     }
                     else
@@ -318,6 +318,7 @@ namespace PSS.rih419.Practica_03
                 Console.WriteLine(Strings_En.Encabezado2);
                 Console.WriteLine(Strings_En.Encabezado3);
                 Console.WriteLine(Strings_En.Encabezado4);
+                Console.WriteLine(Strings_En.Encabezado_5);
             }
             else
             {
@@ -331,7 +332,8 @@ namespace PSS.rih419.Practica_03
                 Console.WriteLine("");
                 Console.WriteLine("Pulse 1 para Jugador vs Jugador");
                 Console.WriteLine("Pulse 2 para Jugador vs IA facil");
-                Console.WriteLine("Pulse 3 para Jugador vs IA media");
+                Console.WriteLine("Pulse 3 para Jugador vs IA dificil");
+                Console.WriteLine("Pulse 4 para IA facil vs IA dificil");
             }
             
 
@@ -425,7 +427,7 @@ namespace PSS.rih419.Practica_03
             {
                 if (j.Nombre.ToString() == "Jugador IA")
                 {
-                    columna = tablero.iaMedia(tablero, j);
+                    columna = tablero.iaDificil(tablero, j);
                 }
                 else
                 {
@@ -456,6 +458,18 @@ namespace PSS.rih419.Practica_03
                             Console.WriteLine("Columna no valida, por favor vuelva a intentarlo:");
                         }
                     }
+                }
+            } else if (dificultad == 4) 
+            {
+                if (j.Nombre.ToString() == "IA Dificil")
+                {
+                    columna = tablero.iaDificil(tablero, j);
+                    Thread.Sleep(1000);
+                } 
+                else if (j.Nombre.ToString() == "IA Facil")
+                {
+                    columna = tablero.iaFacil();
+                    Thread.Sleep(1000);
                 }
             }
             
@@ -583,14 +597,14 @@ namespace PSS.rih419.Practica_03
                     {
                         juego.DesarrolloTurno(j1, tablero, dificultad);
                         booleano1 = tablero.EsFinJuego();
-                        booleano2 = juego.HayGanador(tablero, j1.Ficha);
+                        booleano2 = juego.HayGanador(tablero, j1.Ficha, 4);
                         jugadorGanador = j1;
                     }
                     else if (!(turno % 2 == 0))
                     {
                         juego.DesarrolloTurno(j2, tablero, dificultad);
                         booleano1 = tablero.EsFinJuego();
-                        booleano2 = juego.HayGanador(tablero, j2.Ficha);
+                        booleano2 = juego.HayGanador(tablero, j2.Ficha, 4);
                         jugadorGanador = j2;
                     }
                 }
@@ -654,14 +668,14 @@ namespace PSS.rih419.Practica_03
                     {
                         juego.DesarrolloTurno(j1, tablero, dificultad);
                         booleano1 = tablero.EsFinJuego();
-                        booleano2 = juego.HayGanador(tablero, j1.Ficha);
+                        booleano2 = juego.HayGanador(tablero, j1.Ficha, 4);
                         jugadorGanador = j1;
                     }
                     else if (!(turno % 2 == 0))
                     {
                         juego.DesarrolloTurno(j2, tablero, dificultad);
                         booleano1 = tablero.EsFinJuego();
-                        booleano2 = juego.HayGanador(tablero, j2.Ficha);
+                        booleano2 = juego.HayGanador(tablero, j2.Ficha, 4);
                         jugadorGanador = j2;
                     }
                 }
@@ -767,14 +781,14 @@ namespace PSS.rih419.Practica_03
                     {
                         juego.DesarrolloTurno(j, tablero, dificultad);
                         booleano1 = tablero.EsFinJuego();
-                        booleano2 = juego.HayGanador(tablero, j.Ficha);
+                        booleano2 = juego.HayGanador(tablero, j.Ficha, 4);
                         jugadorGanador = j;
                     }
                     else if (!(turno % 2 == 0))
                     {
                         juego.DesarrolloTurno(jIA, tablero, dificultad);
-                        booleano1 = tablero.EsFinJuego();
-                        booleano2 = juego.HayGanador(tablero, jIA.Ficha);
+                        booleano1 = tablero.EsFinJuego();   
+                        booleano2 = juego.HayGanador(tablero, jIA.Ficha, 4);
                         jugadorGanador = jIA;
                     }
                 }
@@ -838,7 +852,7 @@ namespace PSS.rih419.Practica_03
                     {
                         juego.DesarrolloTurno(jIA, tablero, dificultad);
                         booleano1 = tablero.EsFinJuego();
-                        booleano2 = juego.HayGanador(tablero, jIA.Ficha);
+                        booleano2 = juego.HayGanador(tablero, jIA.Ficha, 4);
                         jugadorGanador = jIA;
 
                     }
@@ -847,8 +861,186 @@ namespace PSS.rih419.Practica_03
 
                         juego.DesarrolloTurno(j, tablero, dificultad);
                         booleano1 = tablero.EsFinJuego();
-                        booleano2 = juego.HayGanador(tablero, j.Ficha);
+                        booleano2 = juego.HayGanador(tablero, j.Ficha, 4);
                         jugadorGanador = j;
+                    }
+                }
+            }
+        }
+
+        public void IAvsIA(Juego juego, int dificultad)
+        {
+            String nombreIAFac = "IA Facil";
+            String nombreIADif = "IA Dificil";
+
+            Jugador jIAFac = new Jugador(nombreIAFac);
+            Jugador jIADif = new Jugador(nombreIADif);
+
+            Tablero tablero = new Tablero();
+
+            tablero.AsignarFicha(jIAFac, jIADif);
+            if (idioma == 2)
+            {
+                Console.WriteLine(Strings_En.Dificultad3 + " " + nombreIAFac + " " + Strings_En.Dificultad4 + " " + jIAFac.Ficha.Color);
+                Console.WriteLine(Strings_En.Dificultad3 + " " + nombreIADif + " " + Strings_En.Dificultad4 + " " + jIADif.Ficha.Color);
+            }
+            else
+            {
+                Console.WriteLine("La ficha de " + nombreIAFac + " es " + jIAFac.Ficha.Color);
+                Console.WriteLine("La ficha de " + nombreIADif + " es " + jIADif.Ficha.Color);
+            }
+
+            bool booleano1 = false;
+            bool booleano2 = false;
+            Jugador jugadorGanador = new Jugador();
+
+            Jugador jugadorTurno = juego.EmpiezaJugadorAleatorio(jIAFac, jIADif);
+
+            if (jugadorTurno == jIAFac)
+            {
+                Console.WriteLine(tablero.ToString());
+
+                for (int turno = 0; turno < 81; turno++)
+                {
+                    if (booleano2 == true || booleano1 == true)
+                    {
+                        if (booleano1 == true)
+                        {
+                            Console.WriteLine("");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad5);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No ha ganado nadie");
+                            }
+
+                            Console.WriteLine("");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad6);
+                            }
+                            else
+                            {
+                                Console.WriteLine("FIN DEL JUEGO");
+                            }
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad7 + " " + jugadorGanador.Nombre.ToString() + " " + Strings_En.Dificultad8);
+                            }
+                            else
+                            {
+                                Console.WriteLine("El jugador " + jugadorGanador.Nombre.ToString() + " es el ganador.");
+                            }
+
+                            Console.WriteLine("");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad6);
+                            }
+                            else
+                            {
+                                Console.WriteLine("FIN DEL JUEGO");
+                            }
+                            break;
+                        }
+                    }
+                    else if (turno % 2 == 0)
+                    {
+                        juego.DesarrolloTurno(jIAFac, tablero, dificultad);
+                        
+                        booleano1 = tablero.EsFinJuego();
+                        booleano2 = juego.HayGanador(tablero, jIAFac.Ficha, 4);
+                        jugadorGanador = jIAFac;
+                    }
+                    else if (!(turno % 2 == 0))
+                    {
+                        juego.DesarrolloTurno(jIADif, tablero, dificultad);
+                        
+                        booleano1 = tablero.EsFinJuego();
+                        booleano2 = juego.HayGanador(tablero, jIADif.Ficha, 4);
+                        jugadorGanador = jIADif;
+                    }
+                }
+            }
+            else if (jugadorTurno == jIADif)
+            {
+                Console.WriteLine(tablero.ToString());
+
+                for (int turno = 0; turno < 81; turno++)
+                {
+                    if (booleano2 == true || booleano1 == true)
+                    {
+                        if (booleano1 == true)
+                        {
+                            Console.WriteLine("");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad5);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No ha ganado nadie");
+                            }
+
+                            Console.WriteLine("");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad6);
+                            }
+                            else
+                            {
+                                Console.WriteLine("FIN DEL JUEGO");
+                            }
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad7 + " " + jugadorGanador.Nombre.ToString() + " " + Strings_En.Dificultad8);
+                            }
+                            else
+                            {
+                                Console.WriteLine("El jugador " + jugadorGanador.Nombre.ToString() + " es el ganador.");
+                            }
+
+                            Console.WriteLine("");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad6);
+                            }
+                            else
+                            {
+                                Console.WriteLine("FIN DEL JUEGO");
+                            }
+                            break;
+                        }
+                    }
+                    else if (turno % 2 == 0)
+                    {
+                        juego.DesarrolloTurno(jIADif, tablero, dificultad);
+                        
+                        booleano1 = tablero.EsFinJuego();
+                        booleano2 = juego.HayGanador(tablero, jIADif.Ficha, 4);
+                        jugadorGanador = jIADif;
+
+                    }
+                    else if (!(turno % 2 == 0))
+                    {
+
+                        juego.DesarrolloTurno(jIAFac, tablero, dificultad);
+                        
+                        booleano1 = tablero.EsFinJuego();
+                        booleano2 = juego.HayGanador(tablero, jIAFac.Ficha, 4);
+                        jugadorGanador = jIAFac;
                     }
                 }
             }

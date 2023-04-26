@@ -15,7 +15,7 @@ namespace PSS.rih419.Practica_03
             while (true)
             {
                 String dificultadEntrada = Console.ReadLine();
-                if (dificultadEntrada == "1" || dificultadEntrada == "2" || dificultadEntrada == "3")
+                if (dificultadEntrada == "1" || dificultadEntrada == "2" || dificultadEntrada == "3" || dificultadEntrada == "4")
                 {
                     dificultad = Int32.Parse(dificultadEntrada);
                     break;
@@ -38,6 +38,10 @@ namespace PSS.rih419.Practica_03
             else if (dificultad == 3)
             {
                 juego.DificultadIA(juego, 3);
+            }
+            else if (dificultad == 4)
+            {
+                juego.IAvsIA(juego, 4);
             }
         }
     }

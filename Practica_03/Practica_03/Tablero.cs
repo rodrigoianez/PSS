@@ -108,10 +108,12 @@ namespace PSS.rih419.Practica_03
             return tablerocopia;
         }
 
-        public int iaMedia(Tablero tablero, Jugador jugadorIA)
+        public int iaDificil(Tablero tablero, Jugador jugadorIA)
         {
             Tablero tableroCopia = new Tablero(tablero);
             Tablero tableroCopia2 = new Tablero(tablero);
+            Tablero tableroCopia3 = new Tablero(tablero);
+
             int numerocasillasocupadas = tablero.numeroCasillasOcupadas;
             Juego juego = new Juego();
 
@@ -142,24 +144,24 @@ namespace PSS.rih419.Practica_03
             {
                 for (i = 8; -1 < i; i--)
                 {
-
                     bool condicion = PonerFichaPosicion(jugadorIA.Ficha, i, tableroCopia);
 
                     if (condicion == true)
                     {
-                        booleano = juego.HayGanador(tableroCopia, jugadorIA.Ficha);
+                        booleano = juego.HayGanador(tableroCopia, jugadorIA.Ficha, 4);
                         if (booleano)
                         {
                             tableroCopia = tablero;
                             columna = i;
                             break;
-                        } else
+                        }
+                        else
                         {
                             bool condicion2 = PonerFichaPosicion(jugador2.Ficha, i, tableroCopia2);
 
                             if (condicion2 == true)
                             {
-                                booleano = juego.HayGanador(tableroCopia2, jugador2.Ficha);
+                                booleano = juego.HayGanador(tableroCopia2, jugador2.Ficha, 4);
                                 if (booleano)
                                 {
                                     tableroCopia2 = tablero;
@@ -169,15 +171,22 @@ namespace PSS.rih419.Practica_03
                                 tableroCopia2.numeroCasillasOcupadas = numerocasillasocupadas;
                             }
                         }
+                        tableroCopia = Tablero.clonar(tablero);
+                        tableroCopia.numeroCasillasOcupadas = numerocasillasocupadas;
                     }
-                    tableroCopia = Tablero.clonar(tablero);
-                    tableroCopia.numeroCasillasOcupadas = numerocasillasocupadas;
+                }
+                break;
+            }
 
+            while (booleano == false)
+            {
+                for (i = 8; -1 < i; i--)
+                {
                     bool condicion1 = PonerFichaPosicion(jugador2.Ficha, i, tableroCopia2);
 
                     if (condicion1 == true)
                     {
-                        booleano = juego.HayGanador(tableroCopia2, jugador2.Ficha);
+                        booleano = juego.HayGanador(tableroCopia2, jugador2.Ficha, 4);
                         if (booleano)
                         {
                             tableroCopia2 = tablero;
@@ -187,9 +196,34 @@ namespace PSS.rih419.Practica_03
                         tableroCopia2 = Tablero.clonar(tablero);
                         tableroCopia2.numeroCasillasOcupadas = numerocasillasocupadas;
                     }
+
+                }
+                break;   
+            }
+            
+            while (booleano == false)
+            {
+                for(i = 8; -1 < i; i--)
+                {
+                    bool condicion = PonerFichaPosicion(jugadorIA.Ficha, i, tableroCopia);
+
+                    if (condicion == true)
+                    {
+                        booleano = juego.HayGanador(tableroCopia, jugadorIA.Ficha, 3);
+
+                        if (booleano)
+                        {
+                            tableroCopia3 = tablero;
+                            columna = i;
+                            break;
+                        }
+                        tableroCopia3 = Tablero.clonar(tablero);
+                        tableroCopia3.numeroCasillasOcupadas = numerocasillasocupadas;
+                    }
                 }
                 break;
             }
+                
             if (columna != -1)
             {
                 return columna;
