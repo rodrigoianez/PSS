@@ -12,4 +12,19 @@
     <ProjectReference Include="..\Practica_03\Conecta_4.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Strings-En.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Strings-En.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Strings-En.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings-En.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

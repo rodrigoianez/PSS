@@ -141,5 +141,33 @@ namespace PSS.rih419.Practica_03
             Assert.AreNotEqual(tablero.casilla[8, columna], null);
 
         }
+
+        [TestMethod]
+        public void iaMedia_TaponaGanador_EsIgual()
+        {
+            Juego juego = new Juego();
+            Ficha ficha1 = new Ficha(ColorFicha.Morado);
+            Ficha fichaIA = new Ficha(ColorFicha.Verde);
+            Tablero tablero = new Tablero();
+            Jugador jugador1 = new Jugador();
+            Jugador jugadorIA = new Jugador();
+            jugador1.Ficha = ficha1;
+            jugadorIA.Ficha = fichaIA;
+            tablero.PonerFichaPosicion(jugadorIA.Ficha, 8, tablero);
+            tablero.PonerFichaPosicion(jugador1.Ficha, 1, tablero);
+            tablero.PonerFichaPosicion(jugadorIA.Ficha, 8, tablero);
+            tablero.PonerFichaPosicion(jugador1.Ficha, 2, tablero);
+            tablero.PonerFichaPosicion(jugadorIA.Ficha, 8, tablero);
+            tablero.PonerFichaPosicion(jugador1.Ficha, 3, tablero);
+            int columna = tablero.iaMedia(tablero, jugadorIA);
+            tablero.PonerFichaPosicion(jugadorIA.Ficha, columna, tablero);
+            bool booleano = juego.HayGanador(tablero, fichaIA);
+
+            Assert.IsTrue(booleano);
+        }
+
+
     }
+
+
 }

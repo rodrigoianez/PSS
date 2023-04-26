@@ -7,7 +7,7 @@ namespace PSS.rih419.Practica_03
     {
         public int NumeroJugadores;
         private Dictionary<string, Jugador> listaJugadores = new Dictionary<string, Jugador>();
-
+        private static int idioma;
         public Juego()
         {
 
@@ -44,8 +44,6 @@ namespace PSS.rih419.Practica_03
             }
             else return j2;
         }
-
-
 
         public bool HayGanador(Tablero tablero, Ficha ficha)
         {
@@ -262,18 +260,51 @@ namespace PSS.rih419.Practica_03
 
             Console.WriteLine(" ");
             Console.WriteLine(" ");
-            Console.WriteLine("                                              Que comience la partida");
-            Console.WriteLine("");
-            Console.WriteLine("Las normas del conecta4 son:");
-            Console.WriteLine("");
-            Console.WriteLine("Para ganar debe tener 4 fichas del mismo color consecutivas en posicion vertical, horizontal o diagonal.");
-            Console.WriteLine("Si al introducir un numero, introduce uno que no esté en el tablero, pierde turno.");
-            Console.WriteLine("");
-            Console.WriteLine("Elija la dificultad");
-            Console.WriteLine("");
-            Console.WriteLine("Pulse 1 para Jugador vs Jugador");
-            Console.WriteLine("Pulse 2 para Jugador vs IA facil");
-            Console.WriteLine("Pulse 3 para Jugador vs IA media");
+            Console.WriteLine("En que idioma quiere jugar / In which language do you want to play:");
+            Console.WriteLine("- Pulsa 1 para jugar en Español:");
+            Console.WriteLine("- Press 2 to play in English: ");
+            String idiomaentrada = Console.ReadLine();
+            
+            while (true)
+            {
+                if (idiomaentrada == "1" || idiomaentrada == "2")
+                {
+                    idioma = Int32.Parse(idiomaentrada);
+                    Console.WriteLine("Idioma no valido, por favor vuelva a intentarlo:");
+                    break;
+                }
+                Console.WriteLine("Language not valid, please try again:");
+                break;
+            }
+            if (idioma == 2)
+            {
+                Console.WriteLine(Strings_En.Encabezado);
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("                                              "+Strings_En.Encabezado1);
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine(Strings_En.Encabezado2);
+                Console.WriteLine(Strings_En.Encabezado3);
+                Console.WriteLine(Strings_En.Encabezado4);
+            }
+            else
+            {
+                Console.WriteLine("Dificultad no valida, por favor vuelva a intentarlo:");
+                Console.WriteLine(" ");
+                Console.WriteLine(" ");
+                Console.WriteLine("                                              Que comience la partida");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("Elija la dificultad");
+                Console.WriteLine("");
+                Console.WriteLine("Pulse 1 para Jugador vs Jugador");
+                Console.WriteLine("Pulse 2 para Jugador vs IA facil");
+                Console.WriteLine("Pulse 3 para Jugador vs IA media");
+            }
+            
 
         }
 
@@ -281,10 +312,18 @@ namespace PSS.rih419.Practica_03
         {
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("Turno de " + j.ToString());
-            int columna = 0
-                ;
+            if (idioma == 2)
+            {
+                Console.WriteLine(j.ToString() + Strings_En.DesarrolloTurno1);
 
+            }
+            else
+            {
+                Console.WriteLine("Turno de " + j.ToString());
+            }
+                
+            int columna = 0;
+            
             if (dificultad == 2)
             {
                 if (j.Nombre.ToString() == "Jugador IA")
@@ -294,7 +333,15 @@ namespace PSS.rih419.Practica_03
                 else
                 {
                     Console.WriteLine();
-                    Console.WriteLine("Introduzca el numero de la columna donde quiera insertar la ficha");
+                    if (idioma == 2)
+                    {
+                        Console.WriteLine(Strings_En.DesarrolloTurno2);
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Introduzca el numero de la columna donde quiera insertar la ficha");
+                    }
                     while (true)
                     {
                         String c = Console.ReadLine();
@@ -303,15 +350,30 @@ namespace PSS.rih419.Practica_03
                             columna = Int32.Parse(c) - 1;
                             break;
                         }
+                        if (idioma == 2)
+                        {
+                            Console.WriteLine(Strings_En.DesarrolloTurno3);
 
-                        Console.WriteLine("Columna no valida, por favor vuelva a intentarlo:");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Columna no valida, por favor vuelva a intentarlo:");
+                        }
                     }
                 }
             }
             else if (dificultad == 1)
             {
                 Console.WriteLine();
-                Console.WriteLine("Introduzca el numero de la columna donde quiera insertar la ficha");
+                if (idioma == 2)
+                {
+                    Console.WriteLine(Strings_En.DesarrolloTurno2);
+
+                }
+                else
+                {
+                    Console.WriteLine("Introduzca el numero de la columna donde quiera insertar la ficha");
+                }
                 while (true)
                 {
                     String c = Console.ReadLine();
@@ -320,8 +382,14 @@ namespace PSS.rih419.Practica_03
                         columna = Int32.Parse(c) - 1;
                         break;
                     }
-
-                    Console.WriteLine("Columna no valida, por favor vuelva a intentarlo:");
+                    if (idioma == 2)
+                    {
+                        Console.WriteLine(Strings_En.DesarrolloTurno3);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Columna no valida, por favor vuelva a intentarlo:");
+                    }
                 }
 
             } else if (dificultad == 3)
@@ -333,7 +401,15 @@ namespace PSS.rih419.Practica_03
                 else
                 {
                     Console.WriteLine();
-                    Console.WriteLine("Introduzca el numero de la columna donde quiera insertar la ficha");
+                    if (idioma == 2)
+                    {
+                        Console.WriteLine(Strings_En.DesarrolloTurno2);
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Introduzca el numero de la columna donde quiera insertar la ficha");
+                    }
                     while (true)
                     {
                         String c = Console.ReadLine();
@@ -342,30 +418,56 @@ namespace PSS.rih419.Practica_03
                             columna = Int32.Parse(c) - 1;
                             break;
                         }
-
-                        Console.WriteLine("Columna no valida, por favor vuelva a intentarlo:");
+                        if (idioma == 2)
+                        {
+                            Console.WriteLine(Strings_En.DesarrolloTurno3);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Columna no valida, por favor vuelva a intentarlo:");
+                        }
                     }
                 }
             }
             
-            bool booleano = tablero.PonerFichaPosicion(j.Ficha, columna);
+            bool booleano = tablero.PonerFichaPosicion(j.Ficha, columna, tablero);
 
             if (booleano = true)
             {
-                Console.WriteLine("La ficha se ha insertado correctamente");
+                if (idioma == 2)
+                {
+                    Console.WriteLine(Strings_En.DesarrolloTurno4);
+                }
+                else
+                {
+                    Console.WriteLine("La ficha se ha insertado correctamente");
+                }
             }
             Console.Clear();
             Console.WriteLine(tablero.ToString());
         }
         public void Dificultad1(Juego juego, int dificultad)
         {
-            
 
-            Console.WriteLine("Introduzca el nombre del primer jugador");
+            if (idioma == 2)
+            {
+                Console.WriteLine(Strings_En.Dificultad1);
+            }
+            else
+            {
+                Console.WriteLine("Introduzca el nombre del primer jugador");
+            }
 
             String nombreJugador1 = Console.ReadLine();
+            if (idioma == 2)
+            {
+                Console.WriteLine(Strings_En.Dificultad2);
+            }
+            else
+            {
 
-            Console.WriteLine("Introduzca el nombre del segundo jugador");
+                Console.WriteLine("Introduzca el nombre del segundo jugador");
+            }
 
             String nombreJugador2 = Console.ReadLine();
 
@@ -375,9 +477,16 @@ namespace PSS.rih419.Practica_03
             Tablero tablero = new Tablero();
 
             tablero.AsignarFicha(j1, j2);
-
-            Console.WriteLine("La ficha de " + nombreJugador1 + " es " + j1.Ficha.Color);
-            Console.WriteLine("La ficha de " + nombreJugador2 + " es " + j2.Ficha.Color);
+            if (idioma == 2)
+            {
+                Console.WriteLine(Strings_En.Dificultad3 + " " + nombreJugador1 + " " + Strings_En.Dificultad4 + " " + j1.Ficha.Color);
+                Console.WriteLine(Strings_En.Dificultad3 + " " + nombreJugador2 + " " + Strings_En.Dificultad4 + " " + j2.Ficha.Color);
+            }
+            else
+            {
+                Console.WriteLine("La ficha de " + nombreJugador1 + " es " + j1.Ficha.Color);
+                Console.WriteLine("La ficha de " + nombreJugador2 + " es " + j2.Ficha.Color);
+            }
 
             Jugador jugadorTurno = juego.EmpiezaJugadorAleatorio(j1, j2);
 
@@ -397,17 +506,47 @@ namespace PSS.rih419.Practica_03
                         if (booleano1 == true)
                         {
                             Console.WriteLine("");
-                            Console.WriteLine("No ha ganado nadie");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad5);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No ha ganado nadie");
+                            }
+                                
                             Console.WriteLine("");
-                            Console.WriteLine("FIN DEL JUEGO");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad6);
+                            }
+                            else
+                            {
+                                Console.WriteLine("FIN DEL JUEGO");
+                            }
                             break;
                         }
                         else
                         {
                             Console.WriteLine("");
-                            Console.WriteLine("El jugador " + jugadorGanador.Nombre.ToString() + " es el ganador.");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad7 + " " + jugadorGanador.Nombre.ToString() + " " + Strings_En.Dificultad8);
+                            }
+                            else
+                            {
+                                Console.WriteLine("El jugador " + jugadorGanador.Nombre.ToString() + " es el ganador.");
+                            }
+
                             Console.WriteLine("");
-                            Console.WriteLine("FIN DEL JUEGO");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad6);
+                            }
+                            else
+                            {
+                                Console.WriteLine("FIN DEL JUEGO");
+                            }
                             break;
                         }
                     }
@@ -438,17 +577,47 @@ namespace PSS.rih419.Practica_03
                         if (booleano1 == true)
                         {
                             Console.WriteLine("");
-                            Console.WriteLine("No ha ganado nadie");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad5);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No ha ganado nadie");
+                            }
+
                             Console.WriteLine("");
-                            Console.WriteLine("FIN DEL JUEGO");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad6);
+                            }
+                            else
+                            {
+                                Console.WriteLine("FIN DEL JUEGO");
+                            }
                             break;
                         }
                         else
                         {
                             Console.WriteLine("");
-                            Console.WriteLine("El jugador " + jugadorGanador.Nombre.ToString() + " es el ganador.");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad7 + " " + jugadorGanador.Nombre.ToString() + " " + Strings_En.Dificultad8);
+                            }
+                            else
+                            {
+                                Console.WriteLine("El jugador " + jugadorGanador.Nombre.ToString() + " es el ganador.");
+                            }
+
                             Console.WriteLine("");
-                            Console.WriteLine("FIN DEL JUEGO");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad6);
+                            }
+                            else
+                            {
+                                Console.WriteLine("FIN DEL JUEGO");
+                            }
                             break;
                         }
                     }
@@ -468,20 +637,20 @@ namespace PSS.rih419.Practica_03
                     }
                 }
             }
-            else
-            {
-                Console.WriteLine("");
-                Console.WriteLine("El jugador " + jugadorGanador.Nombre.ToString() + " es el ganador.");
-                Console.WriteLine("");
-                Console.WriteLine("FIN DEL JUEGO");
-            }
+            
+
         }
 
         public void DificultadIA(Juego juego, int dificultad)
         {
-
-            Console.WriteLine("Introduzca su nombre");
-
+            if (idioma == 2)
+            {
+                Console.WriteLine(Strings_En.Dificultad9);
+            }
+            else
+            {
+                Console.WriteLine("Introduzca su nombre");
+            }
             String nombreJugador = Console.ReadLine();
             String nombreJugadorIA = "Jugador IA";
 
@@ -491,9 +660,16 @@ namespace PSS.rih419.Practica_03
             Tablero tablero = new Tablero();
 
             tablero.AsignarFicha(j, jIA);
-
-            Console.WriteLine("La ficha de " + nombreJugador + " es " + j.Ficha.Color);
-            Console.WriteLine("La ficha de " + nombreJugadorIA + " es " + jIA.Ficha.Color);
+            if (idioma == 2)
+            {
+                Console.WriteLine(Strings_En.Dificultad3 + " " + nombreJugador + " " + Strings_En.Dificultad4 + " " + j.Ficha.Color);
+                Console.WriteLine(Strings_En.Dificultad3 + " " + nombreJugadorIA + " " + Strings_En.Dificultad4 + " " + jIA.Ficha.Color);
+            }
+            else
+            {
+                Console.WriteLine("La ficha de " + nombreJugador + " es " + j.Ficha.Color);
+                Console.WriteLine("La ficha de " + nombreJugadorIA + " es " + jIA.Ficha.Color);
+            }
 
             bool booleano1 = false;
             bool booleano2 = false;
@@ -514,17 +690,47 @@ namespace PSS.rih419.Practica_03
                         if (booleano1 == true)
                         {
                             Console.WriteLine("");
-                            Console.WriteLine("No ha ganado nadie");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad5);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No ha ganado nadie");
+                            }
+
                             Console.WriteLine("");
-                            Console.WriteLine("FIN DEL JUEGO");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad6);
+                            }
+                            else
+                            {
+                                Console.WriteLine("FIN DEL JUEGO");
+                            }
                             break;
                         }
                         else
                         {
                             Console.WriteLine("");
-                            Console.WriteLine("El jugador " + jugadorGanador.Nombre.ToString() + " es el ganador.");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad7 + " " + jugadorGanador.Nombre.ToString() + " " + Strings_En.Dificultad8);
+                            }
+                            else
+                            {
+                                Console.WriteLine("El jugador " + jugadorGanador.Nombre.ToString() + " es el ganador.");
+                            }
+
                             Console.WriteLine("");
-                            Console.WriteLine("FIN DEL JUEGO");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad6);
+                            }
+                            else
+                            {
+                                Console.WriteLine("FIN DEL JUEGO");
+                            }
                             break;
                         }
                     }
@@ -555,17 +761,47 @@ namespace PSS.rih419.Practica_03
                         if (booleano1 == true)
                         {
                             Console.WriteLine("");
-                            Console.WriteLine("No ha ganado nadie");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad5);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No ha ganado nadie");
+                            }
+
                             Console.WriteLine("");
-                            Console.WriteLine("FIN DEL JUEGO");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad6);
+                            }
+                            else
+                            {
+                                Console.WriteLine("FIN DEL JUEGO");
+                            }
                             break;
                         }
                         else
                         {
                             Console.WriteLine("");
-                            Console.WriteLine("El jugador " + jugadorGanador.Nombre.ToString() + " es el ganador.");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad7 + " " + jugadorGanador.Nombre.ToString() + " " + Strings_En.Dificultad8);
+                            }
+                            else
+                            {
+                                Console.WriteLine("El jugador " + jugadorGanador.Nombre.ToString() + " es el ganador.");
+                            }
+
                             Console.WriteLine("");
-                            Console.WriteLine("FIN DEL JUEGO");
+                            if (idioma == 2)
+                            {
+                                Console.WriteLine(Strings_En.Dificultad6);
+                            }
+                            else
+                            {
+                                Console.WriteLine("FIN DEL JUEGO");
+                            }
                             break;
                         }
                     }

@@ -7,4 +7,19 @@
     <RootNamespace>PSS.rih419.Practica_03</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Update="Strings-En.Designer.cs">
+      <DependentUpon>Strings-En.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Strings-En.resx">
+      <LastGenOutput>Strings-En.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
