@@ -120,14 +120,17 @@ namespace PSS.rih419.Practica_03
 
             Jugador jugador2 = new Jugador(ficha1);
 
-            if (jugadorIA.Ficha == ficha1)
+            String ficha1nombre = jugadorIA.Ficha.tostring();
+            String ficha2nombre = jugadorIA.Ficha.tostring();
+
+            if (ficha1nombre == "verde")
             {
                 jugador2.Ficha = ficha2;
 
             }
-            else if (jugadorIA.Ficha == ficha1)
+            else if ( ficha2nombre == "morado")
             {
-                jugador2.Ficha = ficha2;
+                jugador2.Ficha = ficha1;
             }
 
             bool booleano = false;
@@ -137,9 +140,30 @@ namespace PSS.rih419.Practica_03
             {
                 for (int i = 8; -1 < i; i--)
                 {
+                    bool condicion1 = PonerFichaPosicion(jugador2.Ficha, i, tableroCopia2);
+
+                    if (condicion1 == true)
+                    {
+                        booleano = juego.HayGanador(tableroCopia2, jugador2.Ficha);
+                        if (booleano)
+                        {
+                            tableroCopia2 = tablero;
+                            columna = i;
+                            break;
+                        }
+                        tableroCopia2 = Tablero.clonar(tablero);
+                        tableroCopia2.numeroCasillasOcupadas = numerocasillasocupadas;
+                    }
+                }
+                if (booleano == true)
+                {
+                    break;
+                }
+
+                for (int i = 8; -1 < i; i--)
+                {
 
                     bool condicion = PonerFichaPosicion(jugadorIA.Ficha, i, tableroCopia);
-                    
 
                     if (condicion == true)
                     {
@@ -151,26 +175,11 @@ namespace PSS.rih419.Practica_03
                             break;
                         }
                     }
-
-                    
-                    if (PonerFichaPosicion(jugador2.Ficha, i, tableroCopia2) == true)
-                    {
-                        booleano = juego.HayGanador(tableroCopia2, jugador2.Ficha);
-                        if (booleano)
-                        {
-                            tableroCopia = tablero;
-                            columna = i;
-                            break;
-                        }
-                        tableroCopia2 = Tablero.clonar(tableroCopia);
-                            
-                    }
-                    
                     tableroCopia = Tablero.clonar(tablero);
-                    tableroCopia2 = Tablero.clonar(tablero);
                     tableroCopia.numeroCasillasOcupadas = numerocasillasocupadas;
-                    tableroCopia2.numeroCasillasOcupadas = numerocasillasocupadas;
+                   
                 }
+                
                 break;
             }
             if (columna != -1)

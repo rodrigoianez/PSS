@@ -69,17 +69,19 @@ namespace PSS.rih419.Practica_03
             for (j = 0; j < 9; j++)         //Busqueda vertical
             {
                 contador = 0;
-
                 for (i = 0; i < 9; i++)
                 {
-                    if (tablero.casilla[i, j] == ficha)
+                    if (tablero.casilla[i, j] == null)
+                    {
+                        contador = 0;
+
+                    }
+                    else if (tablero.casilla[i, j].Color.ToString() == ficha.Color.ToString())
                     {
                         contador++;
                         if (contador == 4)
                             return true;
-                    }
-                    else
-                        contador = 0;
+                    }  
                 }
                 contador = 0;
             }

@@ -18,8 +18,6 @@ namespace PSS.rih419.Practica_03
         {
             color = color1;
         }
-
-
         public string tostring()
         {
 
