@@ -137,7 +137,7 @@ namespace PSS.rih419.Practica_03
 
             bool booleano = false;
             int columna = -1;
-            int columnaNo;
+            int columnaNo = -1;
             int i = -1;
 
             while (booleano == false)
@@ -151,24 +151,24 @@ namespace PSS.rih419.Practica_03
                         booleano = juego.HayGanador(tableroCopia, jugadorIA.Ficha, 4);
                         if (booleano)
                         {
-                            tableroCopia = tablero;
+                            tableroCopia = Tablero.clonar(tablero);
+                            tableroCopia.numeroCasillasOcupadas = numerocasillasocupadas;
                             columna = i;
                             break;
                         }
-                        else
+                        else;
                         {
-                            bool condicion2 = PonerFichaPosicion(jugador2.Ficha, i, tableroCopia2);
+                            bool condicion2 = PonerFichaPosicion(jugador2.Ficha, i, tableroCopia);
 
                             if (condicion2 == true)
                             {
-                                booleano = juego.HayGanador(tableroCopia2, jugador2.Ficha, 4);
+                                booleano = juego.HayGanador(tableroCopia, jugador2.Ficha, 4);
                                 if (booleano)
                                 {
-                                    tableroCopia2 = tablero;
+                                    tableroCopia = Tablero.clonar(tablero);
+                                    tableroCopia.numeroCasillasOcupadas = numerocasillasocupadas;
                                     columnaNo = i;
                                 }
-                                tableroCopia2 = Tablero.clonar(tablero);
-                                tableroCopia2.numeroCasillasOcupadas = numerocasillasocupadas;
                             }
                         }
                         tableroCopia = Tablero.clonar(tablero);
@@ -189,53 +189,66 @@ namespace PSS.rih419.Practica_03
                         booleano = juego.HayGanador(tableroCopia2, jugador2.Ficha, 4);
                         if (booleano)
                         {
-                            tableroCopia2 = tablero;
+                            tableroCopia2 = Tablero.clonar(tablero);
+                            tableroCopia2.numeroCasillasOcupadas = numerocasillasocupadas;
                             columna = i;
                             break;
                         }
                         tableroCopia2 = Tablero.clonar(tablero);
                         tableroCopia2.numeroCasillasOcupadas = numerocasillasocupadas;
                     }
-
+                    tableroCopia2 = Tablero.clonar(tablero);
+                    tableroCopia2.numeroCasillasOcupadas = numerocasillasocupadas;
                 }
                 break;   
             }
-            
+
             while (booleano == false)
             {
-                for(i = 8; -1 < i; i--)
+                for (i = 8; -1 < i; i--)
                 {
-                    bool condicion = PonerFichaPosicion(jugadorIA.Ficha, i, tableroCopia);
+                    bool condicion = PonerFichaPosicion(jugadorIA.Ficha, i, tableroCopia3);
 
                     if (condicion == true)
                     {
-                        booleano = juego.HayGanador(tableroCopia, jugadorIA.Ficha, 3);
+                        booleano = juego.HayGanador(tableroCopia3, jugadorIA.Ficha, 3);
 
                         if (booleano)
                         {
-                            tableroCopia3 = tablero;
+                            tableroCopia3 = Tablero.clonar(tablero);
+                            tableroCopia3.numeroCasillasOcupadas = numerocasillasocupadas;
                             columna = i;
                             break;
                         }
                         tableroCopia3 = Tablero.clonar(tablero);
                         tableroCopia3.numeroCasillasOcupadas = numerocasillasocupadas;
                     }
+                    tableroCopia3 = Tablero.clonar(tablero);
+                    tableroCopia3.numeroCasillasOcupadas = numerocasillasocupadas;
                 }
                 break;
             }
-                
+
+
+            booleano = false;
             if (columna != -1)
             {
                 return columna;
             }
             else 
             {
-                int[] conjunto = { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
-                int numeroNoElegible = i;
+                
+                int numeroNoElegible = columnaNo;
 
-                int[] arreglo = Array.FindAll(conjunto, x => x != i);
-                columna = arreglo[new Random().Next(arreglo.Length)];
-                return columna;
+                Random random = new Random();
+                int randNum;
+                do
+                {
+                    randNum = random.Next(0, 9);
+                }
+                while (randNum == numeroNoElegible);
+                
+                return randNum;
             }
             
           }

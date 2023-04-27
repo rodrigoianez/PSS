@@ -48,6 +48,7 @@ namespace PSS.rih419.Practica_03
         public bool HayGanador(Tablero tablero, Ficha ficha, int numContador)
         {
             int contador = 0;
+            Juego juego = new Juego();
             int i, j;
 
             for (i = 0; i < 9; i++)          //Busqueda horizontal
@@ -83,12 +84,24 @@ namespace PSS.rih419.Practica_03
                     }
                     else if (tablero.casilla[i, j].Color.ToString() == ficha.Color.ToString())
                     {
+                        
                         contador++;
                         if (contador == numContador)
                             return true;
+                        
+                        
                     }
                     else
-                        contador = 0;
+                    {
+                        if (numContador == 3)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            contador = 0;
+                        }
+                    }      
                 }
                 contador = 0;
             }
@@ -118,6 +131,7 @@ namespace PSS.rih419.Practica_03
                     v++;
                     m++;
                 }
+                contador = 0;
             }
 
             j = 0;
@@ -143,6 +157,7 @@ namespace PSS.rih419.Practica_03
                     v++;
                     m++;
                 }
+                contador = 0;
             }
             //Busqued diagonal
             i = 0;
@@ -168,6 +183,7 @@ namespace PSS.rih419.Practica_03
                     v++;
                     m--;
                 }
+                contador = 0;
             }
 
             j = 9 - 1;
@@ -193,6 +209,7 @@ namespace PSS.rih419.Practica_03
                     v++;
                     m--;
                 }
+                contador = 0;
             }
             return false;
         }
