@@ -481,12 +481,12 @@ namespace PSS.rih419.Practica_03
                 if (j.Nombre.ToString() == "IA Dificil")
                 {
                     columna = tablero.iaDificil(tablero, j);
-                    Thread.Sleep(1000);
+                    Thread.Sleep(700);
                 } 
                 else if (j.Nombre.ToString() == "IA Facil")
                 {
                     columna = tablero.iaFacil();
-                    Thread.Sleep(1000);
+                    Thread.Sleep(700);
                 }
             }
             
@@ -912,6 +912,7 @@ namespace PSS.rih419.Practica_03
             Jugador jugadorGanador = new Jugador();
 
             Jugador jugadorTurno = juego.EmpiezaJugadorAleatorio(jIAFac, jIADif);
+            Thread.Sleep(1500);
 
             if (jugadorTurno == jIAFac)
             {
