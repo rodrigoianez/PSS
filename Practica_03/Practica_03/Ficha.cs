@@ -18,19 +18,33 @@ namespace PSS.rih419.Practica_03
         {
             color = color1;
         }
-        public string tostring()
+        public string ToString()
         {
 
             string colorString;
-
-            if (this.Color == ColorFicha.Morado)
+            if (Juego.idioma == 1)
             {
-                colorString = "morado";
+                if (this.Color == ColorFicha.Morado)
+                {
+                    colorString = "Morado";
+                }
+                else
+                {
+                    colorString = "Verde";
+                }
             }
             else
             {
-                colorString = "verde";
+                if (this.Color == ColorFicha.Morado)
+                {
+                    colorString = "Purple";
+                }
+                else
+                {
+                    colorString = "Green";
+                }
             }
+            
 
             return colorString;
         }

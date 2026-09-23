@@ -7,7 +7,7 @@ namespace PSS.rih419.Practica_03
     {
         public int NumeroJugadores;
         private Dictionary<string, Jugador> listaJugadores = new Dictionary<string, Jugador>();
-        private static int idioma;
+        public  static int idioma;
         public Juego()
         {
 
@@ -309,22 +309,24 @@ namespace PSS.rih419.Practica_03
             Console.WriteLine("En que idioma quiere jugar / In which language do you want to play:");
             Console.WriteLine("- Pulsa 1 para jugar en Español:");
             Console.WriteLine("- Press 2 to play in English: ");
-            String idiomaentrada = Console.ReadLine();
+            
             
             while (true)
             {
+                String idiomaentrada = Console.ReadLine();
+
                 if (idiomaentrada == "1" || idiomaentrada == "2")
                 {
                     idioma = Int32.Parse(idiomaentrada);
-                    Console.WriteLine("Idioma no valido, por favor vuelva a intentarlo:");
                     break;
                 }
+                Console.WriteLine("");
                 Console.WriteLine("Language not valid, please try again:");
-                break;
+                Console.WriteLine("Idioma no valido, por favor vuelva a intentarlo:");
+                  
             }
             if (idioma == 2)
             {
-                Console.WriteLine(Strings_En.Encabezado);
                 Console.WriteLine("");
                 Console.WriteLine("");
                 Console.WriteLine("                                              "+Strings_En.Encabezado1);
@@ -339,7 +341,6 @@ namespace PSS.rih419.Practica_03
             }
             else
             {
-                Console.WriteLine("Dificultad no valida, por favor vuelva a intentarlo:");
                 Console.WriteLine(" ");
                 Console.WriteLine(" ");
                 Console.WriteLine("                                              Que comience la partida");
@@ -442,7 +443,20 @@ namespace PSS.rih419.Practica_03
 
             } else if (dificultad == 3)
             {
-                if (j.Nombre.ToString() == "Jugador IA")
+                String NombreIA;
+
+                if(Juego.idioma == 1)
+                {
+
+                    NombreIA = "Jugador IA";
+
+                }
+                else
+                {
+                    NombreIA = "Player IA";
+                }
+
+                if (j.Nombre.ToString() == NombreIA)
                 {
                     columna = tablero.iaDificil(tablero, j);
                 }
@@ -478,12 +492,28 @@ namespace PSS.rih419.Practica_03
                 }
             } else if (dificultad == 4) 
             {
-                if (j.Nombre.ToString() == "IA Dificil")
+                String NombreIAFacil;
+                String NombreIADificil;
+
+                if (Juego.idioma == 1)
+                {
+
+                    NombreIAFacil = "IA Facil";
+                    NombreIADificil = "IA Dificil";
+
+                }
+                else
+                {
+                    NombreIAFacil = "Easy IA";
+                    NombreIADificil = "Difficult IA";
+                }
+
+                if (j.Nombre.ToString() == NombreIADificil)
                 {
                     columna = tablero.iaDificil(tablero, j);
                     Thread.Sleep(700);
                 } 
-                else if (j.Nombre.ToString() == "IA Facil")
+                else if (j.Nombre.ToString() == NombreIAFacil)
                 {
                     columna = tablero.iaFacil();
                     Thread.Sleep(700);
@@ -573,6 +603,7 @@ namespace PSS.rih419.Practica_03
                             else
                             {
                                 Console.WriteLine("No ha ganado nadie");
+                                
                             }
                                 
                             Console.WriteLine("");
@@ -583,6 +614,7 @@ namespace PSS.rih419.Practica_03
                             else
                             {
                                 Console.WriteLine("FIN DEL JUEGO");
+                                Thread.Sleep(2000);
                             }
                             break;
                         }
@@ -606,6 +638,7 @@ namespace PSS.rih419.Practica_03
                             else
                             {
                                 Console.WriteLine("FIN DEL JUEGO");
+                                Thread.Sleep(2000);
                             }
                             break;
                         }
@@ -654,6 +687,7 @@ namespace PSS.rih419.Practica_03
                             else
                             {
                                 Console.WriteLine("FIN DEL JUEGO");
+                                Thread.Sleep(2000);
                             }
                             break;
                         }
@@ -677,6 +711,7 @@ namespace PSS.rih419.Practica_03
                             else
                             {
                                 Console.WriteLine("FIN DEL JUEGO");
+                                Thread.Sleep(2000);
                             }
                             break;
                         }
@@ -712,7 +747,19 @@ namespace PSS.rih419.Practica_03
                 Console.WriteLine("Introduzca su nombre");
             }
             String nombreJugador = Console.ReadLine();
-            String nombreJugadorIA = "Jugador IA";
+            String NombreIA;
+
+            if (Juego.idioma == 1)
+            {
+
+                NombreIA = "Jugador IA";
+
+            }
+            else
+            {
+                NombreIA = "Player IA";
+            }
+            String nombreJugadorIA = NombreIA;
 
             Jugador j = new Jugador(nombreJugador);
             Jugador jIA = new Jugador(nombreJugadorIA);
@@ -735,7 +782,7 @@ namespace PSS.rih419.Practica_03
             bool booleano2 = false;
             Jugador jugadorGanador = new Jugador();
 
-            Jugador jugadorTurno = juego.EmpiezaJugadorAleatorio(j, jIA);
+            Jugador jugadorTurno = jIA;
 
             if (jugadorTurno == j)
             {
@@ -767,6 +814,7 @@ namespace PSS.rih419.Practica_03
                             else
                             {
                                 Console.WriteLine("FIN DEL JUEGO");
+                                Thread.Sleep(2000);
                             }
                             break;
                         }
@@ -790,6 +838,7 @@ namespace PSS.rih419.Practica_03
                             else
                             {
                                 Console.WriteLine("FIN DEL JUEGO");
+                                Thread.Sleep(2000);
                             }
                             break;
                         }
@@ -838,6 +887,7 @@ namespace PSS.rih419.Practica_03
                             else
                             {
                                 Console.WriteLine("FIN DEL JUEGO");
+                                Thread.Sleep(2000);
                             }
                             break;
                         }
@@ -861,6 +911,7 @@ namespace PSS.rih419.Practica_03
                             else
                             {
                                 Console.WriteLine("FIN DEL JUEGO");
+                                Thread.Sleep(2000);
                             }
                             break;
                         }
@@ -887,8 +938,21 @@ namespace PSS.rih419.Practica_03
 
         public void IAvsIA(Juego juego, int dificultad)
         {
-            String nombreIAFac = "IA Facil";
-            String nombreIADif = "IA Dificil";
+            String nombreIAFac;
+            String nombreIADif;
+
+            if (Juego.idioma == 1)
+            {
+
+                nombreIAFac = "IA Facil";
+                nombreIADif = "IA Dificil";
+
+            }
+            else
+            {
+                nombreIAFac = "Easy IA";
+                nombreIADif = "Difficult IA";
+            }
 
             Jugador jIAFac = new Jugador(nombreIAFac);
             Jugador jIADif = new Jugador(nombreIADif);
@@ -942,6 +1006,7 @@ namespace PSS.rih419.Practica_03
                             else
                             {
                                 Console.WriteLine("FIN DEL JUEGO");
+                                Thread.Sleep(2000);
                             }
                             break;
                         }
@@ -965,6 +1030,7 @@ namespace PSS.rih419.Practica_03
                             else
                             {
                                 Console.WriteLine("FIN DEL JUEGO");
+                                Thread.Sleep(2000);
                             }
                             break;
                         }
@@ -1015,6 +1081,7 @@ namespace PSS.rih419.Practica_03
                             else
                             {
                                 Console.WriteLine("FIN DEL JUEGO");
+                                Thread.Sleep(2000);
                             }
                             break;
                         }
@@ -1038,6 +1105,7 @@ namespace PSS.rih419.Practica_03
                             else
                             {
                                 Console.WriteLine("FIN DEL JUEGO");
+                                Thread.Sleep(2000);
                             }
                             break;
                         }

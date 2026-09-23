@@ -179,12 +179,16 @@ namespace PSS.rih419.Practica_03
             Jugador jugadorIA = new Jugador();
             jugador1.Ficha = ficha1;
             jugadorIA.Ficha = fichaIA;
-            tablero.PonerFichaPosicion(jugadorIA.Ficha, 8, tablero);
-            tablero.PonerFichaPosicion(jugador1.Ficha, 1, tablero);
-            tablero.PonerFichaPosicion(jugadorIA.Ficha, 8, tablero);
+            tablero.PonerFichaPosicion(jugadorIA.Ficha, 3, tablero);
             tablero.PonerFichaPosicion(jugador1.Ficha, 2, tablero);
+            tablero.PonerFichaPosicion(jugadorIA.Ficha, 4, tablero);
+            tablero.PonerFichaPosicion(jugador1.Ficha, 7, tablero);
+            tablero.PonerFichaPosicion(jugadorIA.Ficha, 5, tablero);
+            tablero.PonerFichaPosicion(jugador1.Ficha, 6, tablero);
+            tablero.PonerFichaPosicion(jugadorIA.Ficha, 7, tablero);
+            tablero.PonerFichaPosicion(jugador1.Ficha, 6, tablero);
             tablero.PonerFichaPosicion(jugadorIA.Ficha, 8, tablero);
-            tablero.PonerFichaPosicion(jugador1.Ficha, 3, tablero);
+            tablero.PonerFichaPosicion(jugador1.Ficha, 6, tablero);
             int columna = tablero.iaDificil(tablero, jugadorIA);
             tablero.PonerFichaPosicion(jugadorIA.Ficha, columna, tablero);
             bool booleano = juego.HayGanador(tablero, fichaIA, 4);
@@ -193,11 +197,11 @@ namespace PSS.rih419.Practica_03
         }
 
         [TestMethod]
-        public void iaDificil_TaponaGanador_EsIgual()
+        public void iaDificil_TaponaGanador_EsFalse()
         {
             Juego juego = new Juego();
-            Ficha ficha1 = new Ficha(ColorFicha.Morado);
-            Ficha fichaIA = new Ficha(ColorFicha.Verde);
+            Ficha ficha1 = new Ficha(ColorFicha.Verde);
+            Ficha fichaIA = new Ficha(ColorFicha.Morado);
             Tablero tablero = new Tablero();
             Jugador jugador1 = new Jugador();
             Jugador jugadorIA = new Jugador();
